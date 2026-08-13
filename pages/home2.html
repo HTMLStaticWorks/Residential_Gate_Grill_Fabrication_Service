@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Scala Gate &amp; Grill Studio — Premium residential gate and safety grill fabrication services. Customized MS, SS, and Aluminum designs with precision CAD previews." />
+  <meta name="keywords" content="gate fabrication, window safety grills, mild steel gates, stainless steel railings, aluminum gates, balcony grills, custom metal welding, Scala Studio" />
+  <title>Scala Gate &amp; Grill Studio — Premium Residential Fabrication Service</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23181818%22/><path d=%22M25 80V35c0-5 5-10 10-10h30c5 0 10 5 10 10v45M40 25v55M60 25v55M25 50h50M25 65h50%22 stroke=%22%23ae9e7c%22 stroke-width=%226%22 stroke-linecap=%22round%22 fill=%22none%22/></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <link id="rtl-stylesheet" rel="stylesheet" href="../assets/css/rtl.css" disabled />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* Home2 specific: split hero */
+    .hero2 {
+      min-height: 80vh;
+      display: grid;
+      grid-template-columns: 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media(min-width:1024px) {
+      .hero2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 1023px) {
+      .schedule-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        justify-content: flex-start;
+        padding: 0.5rem 1rem 12px 1rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: auto;
+        scrollbar-color: var(--primary) rgba(0, 0, 0, 0.05);
+      }
+      .schedule-tabs::-webkit-scrollbar {
+        height: 6px;
+        display: block;
+      }
+      .schedule-tabs::-webkit-scrollbar-thumb {
+        background-color: var(--primary);
+        border-radius: 3px;
+      }
+      .schedule-tabs::-webkit-scrollbar-track {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+      }
+      .tab-btn {
+        flex-shrink: 0;
+      }
+    }
+
+    @media(max-width:1023px) {
+      .hero2 {
+        margin-bottom: 3.5rem;
+      }
+    }
+
+    .hero2-content {
+      background: linear-gradient(135deg, var(--secondary) 0%, #242424 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: calc(var(--nav-height) + 3.5rem) 2rem 4.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero2-image {
+      position: relative;
+      min-height: 35vh;
+    }
+
+    @media(min-width:1024px) {
+      .hero2-image {
+        min-height: 80vh;
+      }
+    }
+
+    .hero2-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero2-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--secondary) 0%, transparent 30%);
+    }
+
+    .floating-badge {
+      position: absolute;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      z-index: 2;
+      animation: floatBadge 4s ease-in-out infinite;
+    }
+
+    @keyframes floatBadge {
+      0%,
+      100% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-8px)
+      }
+    }
+
+    .floating-badge-1 {
+      bottom: 8rem;
+      left: 1rem;
+    }
+
+    .floating-badge-2 {
+      top: 8rem;
+      right: 1rem;
+    }
+
+    @media(min-width:1024px) {
+      .floating-badge-1 {
+        bottom: 8rem;
+        left: -4rem;
+      }
+
+      .floating-badge-2 {
+        top: 8rem;
+        right: 2rem;
+      }
+    }
+
+    .fb-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .fb-text .label {
+      font-size: .75rem;
+      color: var(--text-light);
+      letter-spacing: .5px;
+    }
+
+    .fb-text .value {
+      font-weight: 500;
+      font-size: .95rem;
+      color: var(--text-primary);
+    }
+
+    /* Video section */
+    .video-section {
+      padding: 4rem 1.5rem;
+    }
+
+    /* Schedule */
+    .schedule-tabs {
+      display: flex;
+      gap: .75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tab-btn {
+      padding: .6rem 1.4rem;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-full);
+      font-weight: 500;
+      font-size: .9rem;
+      color: var(--text-secondary);
+      transition: var(--transition-bounce);
+    }
+
+    .tab-btn:hover,
+    .tab-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn .4s ease;
+    }
+
+    /* New Section: Fabrication Technology */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    .tech-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: var(--transition-bounce);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .tech-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+    .tech-card-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 16px rgba(255, 71, 126, 0.25);
+    }
+    .tech-card h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    .tech-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+    .tech-badge-container {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: auto;
+    }
+    .tech-badge {
+      background: var(--bg-secondary);
+      color: var(--primary-dark);
+      font-size: 0.75rem;
+      font-weight: 550;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 71, 126, 0.15);
+    }
+
+    /* New Section: Structural Engineering & Deflection Control */
+    .eng-section {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .eng-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .eng-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary); /* High-end engineering header bar accent */
+      border-radius: var(--radius-lg);
+      padding: 2.25rem 2rem;
+      transition: var(--transition-bounce);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+    }
+    .eng-card:hover {
+      border-color: var(--primary);
+      border-top-color: var(--primary-light);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-5px);
+    }
+    .eng-card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+    .eng-card-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 71, 126, 0.1);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+    }
+    .eng-card h3 {
+      font-size: 1.20rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin: 0;
+    }
+    .eng-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .eng-list li {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      line-height: 1.5;
+    }
+    .eng-list li i {
+      color: var(--primary);
+      margin-top: 4px;
+      font-size: 0.85rem;
+      flex-shrink: 0; /* Prevents layout distortion */
+    }
+
+    /* Media query to center the 3rd card in grids only on 768px-1024px screens */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .tech-grid, .eng-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .tech-grid .tech-card:nth-child(3) {
+        grid-column: span 2;
+        justify-self: center;
+        width: calc(50% - 1.25rem); /* Matches exact width of 2nd card in 2.5rem gap grid */
+      }
+      .eng-grid .eng-card:nth-child(3) {
+        grid-column: span 2;
+        justify-self: center;
+        width: calc(50% - 1rem); /* Matches exact width of 2nd card in 2.0rem gap grid */
+      }
+    }
+
+    /* New Section: Retrofit Engineering & Site Logistics */
+    .logistics-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      margin-top: 3.5rem;
+      align-items: center;
+    }
+    @media(min-width: 1024px) {
+      .logistics-grid {
+        grid-template-columns: 1.2fr 1fr;
+      }
+    }
+    .logistics-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .logistics-step {
+      display: flex;
+      gap: 1.5rem;
+      position: relative;
+    }
+    .logistics-step::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 40px;
+      bottom: -30px;
+      width: 2px;
+      background: var(--border);
+    }
+    .logistics-step:last-child::before {
+      display: none;
+    }
+    .step-number {
+      width: 42px;
+      height: 42px;
+      background: var(--bg-secondary);
+      border: 2px solid var(--primary);
+      color: var(--primary-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1rem;
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .logistics-step.active .step-number {
+      background: var(--primary);
+      color: #fff;
+    }
+    .step-info h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+    .step-info p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .logistics-visual {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .visual-stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .visual-stat-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 71, 126, 0.1);
+      color: var(--primary);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .visual-stat-info .stat-val {
+      font-size: 1.25rem;
+      font-weight: 550;
+      color: var(--text-primary);
+      display: block;
+      line-height: 1.2;
+    }
+    .visual-stat-info .stat-lbl {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <nav class="nav-container">
+      <a href="../index.html" class="brand">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px; height:22px; color:#fff; display:block;">
+            <path d="M3 21h18" stroke="currentColor" stroke-width="2"/>
+            <path d="M5 21V5c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v16" stroke="currentColor" stroke-width="2"/>
+            <line x1="9" y1="3" x2="9" y2="21" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="15" y1="3" x2="15" y2="21" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="5" y1="9" x2="19" y2="9" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="5" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7 6c1-1 3-1 4 0M13 6c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+            <path d="M7 12c1-1 3-1 4 0M13 12c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+        <span class="brand-name">Scala <span>Gate &amp; Grill</span></span>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">Home</a></li>
+        <li><a href="home2.html" class="nav-link active">Home 2</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="blog.html" class="nav-link">Blog</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" onclick="window.Scala.RTLManager.toggle()" title="Toggle RTL"
+          aria-label="Toggle RTL" style="font-size: 0.78rem; font-weight: 550;">RTL</button>
+        <button class="nav-icon-btn" onclick="window.Scala.ThemeManager.toggle()" title="Toggle Theme"
+          aria-label="Toggle theme"><i class="theme-toggle-icon fas fa-moon"></i></button>
+        <a href="login.html" class="btn btn-primary btn-sm">Login</a>
+      </div>
+      <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" role="dialog" aria-modal="true">
+    <button class="mobile-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    <a href="../index.html" class="nav-link">Home</a>
+    <a href="home2.html" class="nav-link active">Home 2</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="blog.html" class="nav-link">Blog</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <div class="mobile-menu-actions">
+      <div class="mobile-menu-row">
+        <button class="btn btn-ghost" onclick="window.Scala.RTLManager.toggle()" style="font-weight: 550;">RTL</button>
+        <button class="btn btn-ghost" onclick="window.Scala.ThemeManager.toggle()"><i
+            class="theme-toggle-icon fas fa-moon"></i></button>
+      </div>
+      <a href="login.html" class="btn btn-primary">Login</a>
+    </div>
+  </div>
+
+  <!-- ══ SECTION 1: HERO alternate ══ -->
+  <section class="hero" aria-label="Hero alternate">
+    <div class="hero-bg">
+      <img
+        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80"
+        alt="Premium residential iron gate and villa fencing" loading="eager" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-particles"></div>
+
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-hammer"></i>
+          <span>Premium Gate &amp; Grill Fabrication</span>
+        </div>
+        <h1 class="hero-title">
+          Where Metalworking
+          <span class="accent-text">Becomes Art</span>
+        </h1>
+        <p class="hero-desc">
+          Unlock the structural potential of your layouts with gorgeous custom driveway gates, window safety grills, and glass balcony railings. Turnkey design, measurement, and installation.
+        </p>
+        <div class="hero-actions">
+          <a href="contact.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-ruler-combined"></i> Book Site Measurement
+          </a>
+          <a href="#schedule" class="btn btn-ghost btn-lg">
+            <i class="fas fa-route"></i> See Installation Timelines
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number"><span data-counter data-target="2500" data-suffix="+">2,500+</span></span>
+            <span class="hero-stat-label">Projects Completed</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number"><span data-counter data-target="3" data-suffix="">3</span></span>
+            <span class="hero-stat-label">Main Alloys Used</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 2: SPECIALTIES alternate ══ -->
+  <section class="section" aria-label="Our Specialties">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-label">Core Offerings</span>
+        <h2 class="section-title">Designed for Structural Security</h2>
+        <p class="section-desc">From massive main estate entrance gates to secure balcony louvers, discover the products we fabricate to make your residential properties safe and beautiful.</p>
+      </div>
+      <div class="apparatus-grid">
+        <!-- MS Gates -->
+        <div class="apparatus-card animate-on-scroll delay-1">
+          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80"
+            alt="Mild Steel CNC Cut Driveway Gate" loading="lazy" />
+          <div class="apparatus-overlay">
+            <h3>Mild Steel (MS) Gates</h3>
+            <p>Heavy-duty structural mild steel main doors and gates, primed with anti-corrosion zinc and custom painted or powder coated in your color scheme.</p>
+          </div>
+        </div>
+        <!-- SS Railings -->
+        <div class="apparatus-card animate-on-scroll delay-2">
+          <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&q=80"
+            alt="Stainless Steel Balcony Railing with Glass panels" loading="lazy" />
+          <div class="apparatus-overlay">
+            <h3>Stainless Steel (SS) Railings</h3>
+            <p>Luxury corrosion-free balcony safety railings, glass balustrades, and interior stair handrails fabricated from premium SS 304 and 316 alloys.</p>
+          </div>
+        </div>
+        <!-- Safety Grills -->
+        <div class="apparatus-card animate-on-scroll delay-3">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80"
+            alt="Custom Villa Window safety grills grid pattern" loading="lazy" />
+          <div class="apparatus-overlay">
+            <h3>Window &amp; Balcony Grills</h3>
+            <p>Millimeter-precise window safety grills, balcony mesh screens, and structural partitions designed to secure ventilation openings with modern aesthetics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ NEW SECTION: FABRICATION TECHNOLOGY ══ -->
+  <section class="section" aria-label="Fabrication Technology">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-label">Production Standards</span>
+        <h2 class="section-title">Our Quality &amp; Fabrication Standards</h2>
+        <p class="section-desc">We leverage high-strength metal alloys, custom CNC layout blueprints, and certified load-tested welds to ensure flawless structural execution.</p>
+      </div>
+      <div class="tech-grid">
+        <!-- Anti Rust Treatment -->
+        <div class="tech-card animate-on-scroll delay-1">
+          <div class="tech-card-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Rust-Resistant Treatment</h3>
+          <p>All steel components are treated with double-coat zinc-rich epoxy primers and premium polyurethane powder coatings to resist harsh weather and humidity.</p>
+          <div class="tech-badge-container">
+            <span class="tech-badge">Anti-Rust Epoxy Primer</span>
+            <span class="tech-badge">Zinc Chromate Coat</span>
+          </div>
+        </div>
+        <!-- CNC Precision -->
+        <div class="tech-card animate-on-scroll delay-2">
+          <div class="tech-card-icon">
+            <i class="fas fa-crop-alt"></i>
+          </div>
+          <h3>CNC Laser Precision</h3>
+          <p>We utilize computerized CNC fiber laser cutters to produce high-precision geometric screen panels and custom gate shapes with zero edge flaws.</p>
+          <div class="tech-badge-container">
+            <span class="tech-badge">Fiber Laser Cutting</span>
+            <span class="tech-badge">Millimeter Precision</span>
+          </div>
+        </div>
+        <!-- Safety Anchoring -->
+        <div class="tech-card animate-on-scroll delay-3">
+          <div class="tech-card-icon">
+            <i class="fas fa-hammer"></i>
+          </div>
+          <h3>Certified Welds &amp; Safety</h3>
+          <p>Our installations utilize professional-grade, load-tested anchoring expansion bolts and heavy weld joints to prevent failure and ensure family protection.</p>
+          <div class="tech-badge-container">
+            <span class="tech-badge">High Load Anchoring</span>
+            <span class="tech-badge">Safety Certified Joints</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 3: PROJECT PHASES & TIMELINES ══ -->
+  <section class="section bg-secondary-section" id="schedule" aria-label="Class schedule">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-label">Fabrication Workflow</span>
+        <h2 class="section-title">Timelines &amp; Project Phases</h2>
+        <p class="section-desc">We coordinate steps from initial site measurement to final anchor welding, ensuring millimeter precision.</p>
+      </div>
+      <div class="schedule-tabs">
+        <button class="tab-btn active" onclick="showTab('mon',this)">1. Survey &amp; CAD</button>
+        <button class="tab-btn" onclick="showTab('tue',this)">2. Material Prep</button>
+        <button class="tab-btn" onclick="showTab('wed',this)">3. Fitting &amp; Weld</button>
+        <button class="tab-btn" onclick="showTab('thu',this)">4. Finish Coating</button>
+        <button class="tab-btn" onclick="showTab('fri',this)">5. Site Fitment</button>
+        <button class="tab-btn" onclick="showTab('sat',this)">6. Final Handover</button>
+      </div>
+      <!-- Stage 1 -->
+      <div id="mon" class="tab-content active">
+        <div class="table-responsive">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Step / Phase</th>
+                <th>Deliverable / Activity</th>
+                <th>Lead Coordinator</th>
+                <th>Required Target Spec</th>
+                <th>Est. Duration</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01. Site Survey &amp; Measure</td>
+                <td><span class="class-tag tag-pole">Wall anchoring &amp; sizing</span></td>
+                <td>Karthik R.</td>
+                <td>Dimensions Sheet</td>
+                <td>1 Day</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Enquire</a></td>
+              </tr>
+              <tr>
+                <td>02. 3D CAD Drafting</td>
+                <td><span class="class-tag tag-silks">Gate layout blueprint mockup</span></td>
+                <td>Sneha K.</td>
+                <td>CAD Visual Ready</td>
+                <td>2 Days</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Enquire</a></td>
+              </tr>
+              <tr>
+                <td>03. Swatch &amp; Alloy Select</td>
+                <td><span class="class-tag tag-lyra">Steel alloy &amp; powder swatches</span></td>
+                <td>Riya M.</td>
+                <td>Approved Spec Sheet</td>
+                <td>1 Day</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Enquire</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Stage 2 -->
+      <div id="tue" class="tab-content">
+        <div class="table-responsive">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Step / Phase</th>
+                <th>Deliverable / Activity</th>
+                <th>Lead Coordinator</th>
+                <th>Required Target Spec</th>
+                <th>Est. Duration</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01. Steel Profile Prep</td>
+                <td><span class="class-tag tag-aerial">MS/SS tubes &amp; panels count</span></td>
+                <td>Karthik R.</td>
+                <td>Alloy Verification</td>
+                <td>1 Day</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+              </tr>
+              <tr>
+                <td>02. CNC Laser Cutting</td>
+                <td><span class="class-tag tag-silks">Geometric panel sheet cuts</span></td>
+                <td>Raju S.</td>
+                <td>Laser Tolerance Check</td>
+                <td>2 Days</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Stage 3 -->
+      <div id="wed" class="tab-content">
+        <div class="table-responsive">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Step / Phase</th>
+                <th>Deliverable / Activity</th>
+                <th>Lead Coordinator</th>
+                <th>Required Target Spec</th>
+                <th>Est. Duration</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01. Frame Assembly Jig</td>
+                <td><span class="class-tag tag-lyra">Welding jig framing setup</span></td>
+                <td>M. Kumar</td>
+                <td>Fitment Spec</td>
+                <td>1 Day</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+              </tr>
+              <tr>
+                <td>02. Accent Welding</td>
+                <td><span class="class-tag tag-pole">Scrollwork joint alignment</span></td>
+                <td>M. Kumar</td>
+                <td>Joint Alignment Check</td>
+                <td>1 Day</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Stage 4 -->
+      <div id="thu" class="tab-content">
+        <div class="table-responsive">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Step / Phase</th>
+                <th>Deliverable / Activity</th>
+                <th>Lead Coordinator</th>
+                <th>Required Target Spec</th>
+                <th>Est. Duration</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01. Joint Grinding</td>
+                <td><span class="class-tag tag-aerial">Smoothing out weld seams</span></td>
+                <td>Arun P.</td>
+                <td>Seamless Polish</td>
+                <td>1 Day</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+              </tr>
+              <tr>
+                <td>02. Powder Coating</td>
+                <td><span class="class-tag tag-pole">Bake-on anti-rust finish</span></td>
+                <td>Arun P.</td>
+                <td>Coating Thickness Spec</td>
+                <td>1 Day</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Stage 5 -->
+      <div id="fri" class="tab-content">
+        <div class="table-responsive">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Step / Phase</th>
+                <th>Deliverable / Activity</th>
+                <th>Lead Coordinator</th>
+                <th>Required Target Spec</th>
+                <th>Est. Duration</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01. Anchor Rigging</td>
+                <td><span class="class-tag tag-pole">Expansion bolt wall anchoring</span></td>
+                <td>Install Crew</td>
+                <td>Pull-Load Integrity</td>
+                <td>1 Day</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+              </tr>
+              <tr>
+                <td>02. Gate &amp; Lock Fitting</td>
+                <td><span class="class-tag tag-silks">Mounting gate panels &amp; locks</span></td>
+                <td>Install Crew</td>
+                <td>Swing &amp; Latch Check</td>
+                <td>1 Day</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Stage 6 -->
+      <div id="sat" class="tab-content">
+        <div class="table-responsive">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Step / Phase</th>
+                <th>Deliverable / Activity</th>
+                <th>Lead Coordinator</th>
+                <th>Required Target Spec</th>
+                <th>Est. Duration</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>01. Final Touchups</td>
+                <td><span class="class-tag tag-pole">Welding polish &amp; paint check</span></td>
+                <td>Install Crew</td>
+                <td>Smooth Finish Check</td>
+                <td>1 Day</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+              </tr>
+              <tr>
+                <td>02. Site Handover</td>
+                <td><span class="class-tag tag-silks">Clean sweep &amp; debris collect</span></td>
+                <td>Install Crew</td>
+                <td>Clean Site Sign-off</td>
+                <td>1 Day</td>
+                <td><a href="contact.html" class="btn btn-primary btn-sm">Book</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ NEW SECTION: STRUCTURAL ENGINEERING STANDARDS ══ -->
+  
+
+  <!-- ══ SECTION 4: DESIGNERS & MAKERS ══ -->
+  <section class="section" aria-label="Instructors">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-label">Meet the Team</span>
+        <h2 class="section-title">Our Fabrication Specialists</h2>
+        <p class="section-desc">We combine engineering precision with master welding and custom metalwork disciplines to deliver secure and beautiful architectural installations.</p>
+      </div>
+      <div class="team-grid">
+        <!-- Team 1 -->
+        <div class="team-card animate-on-scroll delay-1">
+          <div class="team-avatar">
+            <img src="https://spoonuniversity.com/wp-content/uploads/2024/07/Kavya_Raghavendhran.jpg"
+              alt="Kavya Raghavan" loading="lazy" />
+            <div class="team-social">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <h3 class="team-name">Kavya Raghavan</h3>
+          <div class="team-role">Founder &amp; Chief Architect</div>
+          <p class="team-desc">15+ years metal design. B.Arch. Expert in residential aesthetics and gate layouts.</p>
+        </div>
+        <!-- Team 2 -->
+        <div class="team-card animate-on-scroll delay-2">
+          <div class="team-avatar">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80" alt="Raju Subramanian"
+              loading="lazy" />
+            <div class="team-social">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <h3 class="team-name">Raju Subramanian</h3>
+          <div class="team-role">Head CNC Machinist</div>
+          <p class="team-desc">Specializes in high-tolerance laser profile programming and metal screen custom cuts.</p>
+        </div>
+        <!-- Team 3 -->
+        <div class="team-card animate-on-scroll delay-3">
+          <div class="team-avatar">
+            <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&q=80" alt="M. Kumar"
+              loading="lazy" />
+            <div class="team-social">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <h3 class="team-name">M. Kumar</h3>
+          <div class="team-role">Lead Welder &amp; Fitter</div>
+          <p class="team-desc">AWS Certified welder with 12+ years experience in structural SS and MS joineries.</p>
+        </div>
+        <!-- Team 4 -->
+        <div class="team-card animate-on-scroll delay-4">
+          <div class="team-avatar">
+            <img
+              src="https://media.licdn.com/dms/image/v2/D4E03AQH4L6Onh6_agA/profile-displayphoto-shrink_200_200/B4EZTv8BwSHcAc-/0/1739192278577?e=2147483647&v=beta&t=LQDnzb8GDF0CAZBoMbcPYbpblqmUcqb-JejpLmuxrfc"
+              alt="Sneha Krishnan" loading="lazy" />
+            <div class="team-social">
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <h3 class="team-name">Sneha Krishnan</h3>
+          <div class="team-role">Senior CAD Modeler</div>
+          <p class="team-desc">Coordinates architectural layout checks and creates 3D blueprints for client approval.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ NEW SECTION: RETROFIT ENGINEERING & SITE LOGISTICS ══ -->
+  <section class="section" aria-label="Retrofit &amp; Site Logistics">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-label">Seamless Execution</span>
+        <h2 class="section-title">Site Logistics &amp; Turnkey Installation</h2>
+        <p class="section-desc">We build to fit. Our installation methodology ensures custom gates and grills integrate cleanly into structural columns with zero damage to surrounding walls.</p>
+      </div>
+      <div class="logistics-grid">
+        <!-- Steps of Logistics -->
+        <div class="logistics-steps">
+          <div class="logistics-step active animate-on-scroll delay-1">
+            <div class="step-number">01</div>
+            <div class="step-info">
+              <h3>Structural Audit</h3>
+              <p>We inspect columns and concrete walls to map weight anchor load capacities and locate internal wiring before starting designs.</p>
+            </div>
+          </div>
+          <div class="logistics-step animate-on-scroll delay-2">
+            <div class="step-number">02</div>
+            <div class="step-info">
+              <h3>Modular Assembly</h3>
+              <p>Gates and window grills are fabricated in our workshop as interlocking segments to pass easily through residential streets and entryways.</p>
+            </div>
+          </div>
+          <div class="logistics-step animate-on-scroll delay-3">
+            <div class="step-number">03</div>
+            <div class="step-info">
+              <h3>Heavy Anchoring</h3>
+              <p>We use heavy-duty steel expansion anchor bolts and load-bearing bracket sleeves to secure frames permanently with no wall cracks.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Visual Stats / Proof Cards -->
+        <div class="logistics-visual animate-on-scroll delay-2">
+          <div class="visual-stat-card">
+            <div class="visual-stat-icon">
+              <i class="fas fa-truck-loading"></i>
+            </div>
+            <div class="visual-stat-info">
+              <span class="stat-val">100% Solid Welds</span>
+              <span class="stat-lbl">AWS Certified load joints with penetration warranty</span>
+            </div>
+          </div>
+          <div class="visual-stat-card">
+            <div class="visual-stat-icon">
+              <i class="fas fa-history"></i>
+            </div>
+            <div class="visual-stat-info">
+              <span class="stat-val">10–14 Day Turnaround</span>
+              <span class="stat-lbl">Average time taken from site measurement to complete final fitment</span>
+            </div>
+          </div>
+          <div class="visual-stat-card">
+            <div class="visual-stat-icon">
+              <i class="fas fa-drafting-compass"></i>
+            </div>
+            <div class="visual-stat-info">
+              <span class="stat-val">Pre-Design Verification</span>
+              <span class="stat-lbl">Detailed 3D CAD modeling and column alignment check before fabrication</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECTION 5: EVENT PLANS ══ -->
+  
+
+  <!-- ══ SECTION 6: FAQ ══ -->
+  <section class="section" aria-label="FAQ and newsletter">
+    <div class="container">
+      <div style="grid-template-columns:1fr;gap:4rem;" class="faq-newsletter-grid">
+        <div>
+          <div class="animate-on-scroll text-center">
+            <span class="section-label">FAQ</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-list" style="margin-top:2rem;">
+            <div class="faq-item animate-on-scroll delay-1">
+              <div class="faq-question">Do you provide measurement and installation services? <i class="fas fa-chevron-down"></i></div>
+              <div class="faq-answer">
+                <p>Yes! We handle the complete process. Our team conducts on-site measurements, transports the custom-fabricated gates or grills to your property, and performs complete anchoring and weld-fitting on-site.</p>
+              </div>
+            </div>
+            <div class="faq-item animate-on-scroll delay-2">
+              <div class="faq-question">What metal alloys do you support? <i class="fas fa-chevron-down"></i></div>
+              <div class="faq-answer">
+                <p>We work with high-quality structural materials including heavy Mild Steel (MS) profiles, corrosion-free Stainless Steel (SS 304 and marine-grade SS 316), and lightweight non-corrosive powder-coated Aluminum louvers.</p>
+              </div>
+            </div>
+            <div class="faq-item animate-on-scroll delay-3">
+              <div class="faq-question">What structural anchors do you use for safety? <i class="fas fa-chevron-down"></i></div>
+              <div class="faq-answer">
+                <p>We use heavy-duty steel expansion anchor bolts, reinforced column sleeve connectors, and high-penetration structural arc welds to ensure gates and high-rise balcony railings are securely anchored without cracking structural pillars.</p>
+              </div>
+            </div>
+            <div class="faq-item animate-on-scroll delay-4">
+              <div class="faq-question">Do you offer complimentary site visits? <i class="fas fa-chevron-down"></i></div>
+              <div class="faq-answer">
+                <p>Yes. If you are located in Chennai, you can book a free site measurement visit. Our drafting engineer will visit your property, verify column dimensions, and present a complimentary 3D design suggestion and pricing proposal.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner" aria-label="Call to action">
+    <div class="container">
+      <span class="section-label" style="color:var(--accent);">Showroom Open</span>
+      <h2>Experience the Metals in Chennai</h2>
+      <p>Visit our fabrication workshop and design studio in Anna Nagar. Inspect metal gauges, review laser-cut CNC panels, and see automated gate motors in action.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-accent btn-lg"><i class="fas fa-calendar-alt"></i> Book Showroom Visit</a>
+        <a href="services.html" class="btn btn-ghost btn-lg"><i class="fas fa-images"></i> View Portfolios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="brand"
+          style="text-decoration: none; margin-bottom: 1.5rem; display: inline-flex; align-items: center;">
+          <div class="brand-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px; height:22px; color:#fff; display:block;">
+              <path d="M3 21h18" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 21V5c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v16" stroke="currentColor" stroke-width="2"/>
+              <line x1="9" y1="3" x2="9" y2="21" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="15" y1="3" x2="15" y2="21" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="5" y1="9" x2="19" y2="9" stroke="currentColor" stroke-width="1.5"/>
+              <line x1="5" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M7 6c1-1 3-1 4 0M13 6c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+              <path d="M7 12c1-1 3-1 4 0M13 12c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+            </svg>
+          </div>
+          <span class="brand-name">Scala <span>Gate &amp; Grill</span></span>
+        </a>
+        <p class="footer-desc">Sleek, secure, and architecturally precise residential gates, window grills, and balcony safety railings fabricated in MS, SS, and Aluminum.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-heading">Scala Studio</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html" class="footer-link">Home</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+          <li><a href="services.html" class="footer-link">Our Services</a></li>
+          <li><a href="blog.html" class="footer-link">Insights &amp; Blog</a></li>
+          <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html" class="footer-link">Mild Steel (MS) Gates</a></li>
+          <li><a href="services.html" class="footer-link">Stainless Steel (SS) Railings</a></li>
+          <li><a href="services.html" class="footer-link">Aluminum Privacy Screens</a></li>
+          <li><a href="services.html" class="footer-link">Window &amp; Balcony Grills</a></li>
+          <li><a href="services.html" class="footer-link">Free Measurement Visits</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">Contact Info</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+919876543210" class="footer-link"><i class="fas fa-phone"
+                style="width:16px;color:var(--accent)"></i> +91 98765 43210</a></li>
+          <li><a href="mailto:hello@scalastudio.in" class="footer-link"><i class="fas fa-envelope"
+                style="width:16px;color:var(--accent)"></i> hello@scalastudio.in</a></li>
+          <li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt"
+                style="width:16px;color:var(--accent)"></i> Anna Nagar, Chennai</a></li>
+          <li><a href="#" class="footer-link"><i class="fas fa-clock" style="width:16px;color:var(--accent)"></i>
+              Mon–Sat: 9AM–6PM</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Scala Gate &amp; Grill Studio. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies Settings</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="../assets/js/main.js"></script>
+  <script>
+    function showTab(day, btn) {
+      document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(day).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Scala Gate &amp; Grill Studio — Premium residential gate and safety grill fabrication services. Customized MS, SS, and Aluminum designs with precision CAD previews." />
+  <meta name="keywords" content="gate fabrication, window safety grills, mild steel gates, stainless steel railings, aluminum gates, balcony grills, custom metal welding, Scala Studio" />
+  <title>Scala Gate &amp; Grill Studio — Premium Residential Fabrication Service</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23181818%22/><path d=%22M25 80V35c0-5 5-10 10-10h30c5 0 10 5 10 10v45M40 25v55M60 25v55M25 50h50M25 65h50%22 stroke=%22%23ae9e7c%22 stroke-width=%226%22 stroke-linecap=%22round%22 fill=%22none%22/></svg>">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dark-mode.css" />
+  <link id="rtl-stylesheet" rel="stylesheet" href="assets/css/rtl.css" disabled />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header class="header" id="header">
+  <nav class="nav-container">
+    <!-- Brand -->
+    <a href="index.html" class="brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px; height:22px; color:#fff; display:block;">
+          <path d="M3 21h18" stroke="currentColor" stroke-width="2"/>
+          <path d="M5 21V5c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v16" stroke="currentColor" stroke-width="2"/>
+          <line x1="9" y1="3" x2="9" y2="21" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="15" y1="3" x2="15" y2="21" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="5" y1="9" x2="19" y2="9" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="5" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M7 6c1-1 3-1 4 0M13 6c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+          <path d="M7 12c1-1 3-1 4 0M13 12c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <span class="brand-name">Scala <span>Gate &amp; Grill</span></span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link active">Home</a></li>
+      <li><a href="pages/home2.html" class="nav-link">Home 2</a></li>
+      <li><a href="pages/about.html" class="nav-link">About</a></li>
+      <li><a href="pages/services.html" class="nav-link">Services</a></li>
+      <li><a href="pages/blog.html" class="nav-link">Blog</a></li>
+      <li><a href="pages/contact.html" class="nav-link">Contact</a></li>
+    </ul>
+
+    <!-- Desktop Actions -->
+    <div class="nav-actions">
+      <button class="nav-icon-btn" onclick="window.Scala.RTLManager.toggle()" title="Toggle RTL" aria-label="Toggle RTL" style="font-size: 0.78rem; font-weight: 550;">RTL</button>
+      <button class="nav-icon-btn" onclick="window.Scala.ThemeManager.toggle()" title="Toggle Theme" aria-label="Toggle theme">
+        <i class="theme-toggle-icon fas fa-moon"></i>
+      </button>
+      <a href="pages/login.html" class="btn btn-primary btn-sm">Login</a>
+    </div>
+
+    <!-- Hamburger (mobile) -->
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" role="dialog" aria-modal="true">
+  <button class="mobile-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+  <a href="index.html" class="nav-link active">Home</a>
+  <a href="pages/home2.html" class="nav-link">Home 2</a>
+  <a href="pages/about.html" class="nav-link">About</a>
+  <a href="pages/services.html" class="nav-link">Services</a>
+  <a href="pages/blog.html" class="nav-link">Blog</a>
+  <a href="pages/contact.html" class="nav-link">Contact</a>
+  <div class="mobile-menu-actions">
+    <div class="mobile-menu-row">
+      <button class="btn btn-ghost" onclick="window.Scala.RTLManager.toggle()" style="font-weight: 550;">RTL</button>
+      <button class="btn btn-ghost" onclick="window.Scala.ThemeManager.toggle()"><i class="theme-toggle-icon fas fa-moon"></i></button>
+    </div>
+    <a href="pages/login.html" class="btn btn-primary">Login</a>
+  </div>
+</div>
+
+<!-- ══ SECTION 1: HERO ══ -->
+<section class="hero" aria-label="Hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1600&q=80" alt="Precision metal fabrication and custom welding workshop" loading="eager" />
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-particles"></div>
+
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-hammer"></i>
+        <span>Premium Residential Gate &amp; Grill Studio</span>
+      </div>
+      <h1 class="hero-title">
+        Architectural Gates
+        <span class="accent-text">&amp; Safety Grills</span>
+      </h1>
+      <p class="hero-desc">
+        Custom mild steel (MS), stainless steel (SS), and aluminum gates, balcony railings, and window safety grills fabricated with precise structural calculations and elegant modern aesthetics.
+      </p>
+      <div class="hero-actions">
+        <a href="pages/contact.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-ruler-combined"></i> Book Free Measurement
+        </a>
+        <a href="pages/services.html" class="btn btn-ghost btn-lg">
+          <i class="fas fa-drafting-table"></i> Explore Portfolios
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number"><span data-counter data-target="2500" data-suffix="+">2,500+</span></span>
+          <span class="hero-stat-label">Gates &amp; Grills Installed</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number"><span data-counter data-target="15" data-suffix="+">15+</span></span>
+          <span class="hero-stat-label">Years of Craftsmanship</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 2: FEATURES ══ -->
+<section class="section bg-secondary-section" aria-label="Why choose us">
+  <div class="container">
+    <div class="text-center animate-on-scroll">
+      <span class="section-label">Engineering Excellence</span>
+      <h2 class="section-title">Precision Fabrications Built to Last<em></em></h2>
+      <p class="section-desc">We blend high-grade metallurgy with detailed architectural drafting, designing custom gates and safety screens for premium homes, apartments, and commercial projects.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card animate-on-scroll delay-1">
+        <div class="feature-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80" alt="Precision metal welding and drafting blueprint" class="feature-card-img" />
+        </div>
+        <div class="feature-card-content">
+          <div class="feature-icon"><i class="fas fa-drafting-table"></i></div>
+          <h3>Custom CAD Drafting</h3>
+          <p>Every project starts with a detailed 2D/3D CAD blueprint, ensuring precise fitment to your home's structural columns before we cut any metal.</p>
+        </div>
+      </div>
+      <div class="feature-card animate-on-scroll delay-2">
+        <div class="feature-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1534224039826-c7a0dea0e66a?w=600&q=80" alt="Computerized CNC laser metal cutting process" class="feature-card-img" />
+        </div>
+        <div class="feature-card-content">
+          <div class="feature-icon"><i class="fas fa-crop-alt"></i></div>
+          <h3>Laser CNC Cutting</h3>
+          <p>We utilize computerized CNC laser metal cutting to produce intricate modern geometric patterns, floral designs, or custom family crests.</p>
+        </div>
+      </div>
+      <div class="feature-card animate-on-scroll delay-3">
+        <div class="feature-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Sleek residential metal front gate installation" class="feature-card-img" />
+        </div>
+        <div class="feature-card-content">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Wind &amp; Load Safety</h3>
+          <p>Gates and high-rise balcony safety grills are engineered to withstand severe wind pressure, secure anchor weights, and accidental impact loads.</p>
+        </div>
+      </div>
+      <div class="feature-card animate-on-scroll delay-4">
+        <div class="feature-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1574634534894-89d7576c8259?w=600&q=80" alt="Heavy steel alloy tubes and rods in factory warehouse" class="feature-card-img" />
+        </div>
+        <div class="feature-card-content">
+          <div class="feature-icon"><i class="fas fa-star"></i></div>
+          <h3>Premium Metal Alloys</h3>
+          <p>From architectural-grade aluminum and heavy-gauge mild steel to rust-resistant SS 304/316 alloys, we use certified standard materials only.</p>
+        </div>
+      </div>
+      <div class="feature-card animate-on-scroll delay-5">
+        <div class="feature-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80" alt="Installation crew mounting a metal door panel" class="feature-card-img" />
+        </div>
+        <div class="feature-card-content">
+          <div class="feature-icon"><i class="fas fa-truck-loading"></i></div>
+          <h3>On-Site Installation</h3>
+          <p>Our certified installation team handles precise site measurements, transportation, anchor welding, alignment checks, and post-install touchups.</p>
+        </div>
+      </div>
+      <div class="feature-card animate-on-scroll delay-1">
+        <div class="feature-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=600&q=80" alt="Contract negotiations with builder client" class="feature-card-img" />
+        </div>
+        <div class="feature-card-content">
+          <div class="feature-icon"><i class="fas fa-file-contract"></i></div>
+          <h3>Developer Contracts</h3>
+          <p>Specialized turnkey packages, project bidding rates, and dedicated coordinators for luxury residential societies, builders, and architects.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 3: PORTFOLIO COLLECTIONS ══ -->
+<section class="section" aria-label="Featured collections">
+  <div class="container">
+    <div class="text-center animate-on-scroll">
+      <span class="section-label">Design Collections</span>
+      <h2 class="section-title">Explore Fabrication Specialties</h2>
+      <p class="section-desc">Explore our masterfully fabricated metal solutions, designed for architectural beauty, premium security, and long-term durability.</p>
+    </div>
+    <div class="classes-grid home-classes-grid">
+      <!-- Mild Steel -->
+      <div class="class-card animate-on-scroll delay-1">
+        <div class="class-card-img">
+          <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80" alt="Intricate Mild Steel main entrance gate with CNC laser-cut sheets" loading="lazy" />
+          <span class="class-badge">CNC Cut / Heavy Duty / MS</span>
+        </div>
+        <div class="class-card-body">
+          <h3>Mild Steel (MS) Fabrications</h3>
+          <p>High-strength mild steel main entrance gates and window safety grills. Custom laser-cut CNC sheets, primed with zinc chromate for robust rust protection.</p>
+          <div class="class-meta">
+            <span><i class="fas fa-border-all"></i> Safety Grills</span>
+            <span><i class="fas fa-door-open"></i> CNC Gates</span>
+            <span><i class="fas fa-brush"></i> Anti-Rust Primer</span>
+          </div>
+          <div class="class-level">
+            <div class="level-dot filled"></div>
+            <div class="level-dot filled"></div>
+            <div class="level-dot filled"></div>
+            <div class="level-dot filled"></div>
+            <div class="level-dot"></div>
+          </div>
+          <div class="class-footer">
+            <span class="class-price">Standard &amp; Custom</span>
+            <a href="pages/services.html" class="btn btn-primary btn-sm">View Work</a>
+          </div>
+        </div>
+      </div>
+      <!-- Stainless Steel -->
+      <div class="class-card animate-on-scroll delay-2">
+        <div class="class-card-img">
+          <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&q=80" alt="Polished Stainless Steel glass balcony railing balustrade" loading="lazy" />
+          <span class="class-badge">SS 304 &amp; 316 / Mirror Finish</span>
+        </div>
+        <div class="class-card-body">
+          <h3>Stainless Steel (SS) Suites</h3>
+          <p>Luxury corrosion-free stainless steel gates, glass-panel balcony balustrades, and structural staircase railings. Engineered for maximum longevity.</p>
+          <div class="class-meta">
+            <span><i class="fas fa-shield-alt"></i> Rust-Free SS304</span>
+            <span><i class="fas fa-cubes"></i> Balustrades</span>
+            <span><i class="fas fa-sun"></i> Mirror Finish</span>
+          </div>
+          <div class="class-level">
+            <div class="level-dot filled"></div>
+            <div class="level-dot filled"></div>
+            <div class="level-dot filled"></div>
+            <div class="level-dot filled"></div>
+            <div class="level-dot filled"></div>
+          </div>
+          <div class="class-footer">
+            <span class="class-price">Premium Architectural</span>
+            <a href="pages/services.html" class="btn btn-primary btn-sm">View Work</a>
+          </div>
+        </div>
+      </div>
+      <!-- Aluminum -->
+      <div class="class-card animate-on-scroll delay-3">
+        <div class="class-card-img">
+          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&q=80" alt="Modern minimalist powder-coated aluminum screen fence" loading="lazy" />
+          <span class="class-badge">Lightweight / Non-Corrosive</span>
+        </div>
+        <div class="class-card-body">
+          <h3>Aluminum Gates &amp; Screens</h3>
+          <p>Sleek, lightweight, and zero-maintenance powder-coated aluminum gates and privacy screen louvers. Perfect for coastal areas and modern villas.</p>
+          <div class="class-meta">
+            <span><i class="fas fa-feather-alt"></i> Lightweight</span>
+            <span><i class="fas fa-tint-slash"></i> Zero Rust</span>
+            <span><i class="fas fa-sliders-h"></i> Privacy Louvers</span>
+          </div>
+          <div class="class-level">
+            <div class="level-dot filled"></div>
+            <div class="level-dot filled"></div>
+            <div class="level-dot filled"></div>
+            <div class="level-dot filled"></div>
+            <div class="level-dot"></div>
+          </div>
+          <div class="class-footer">
+            <span class="class-price">Modern Villa Grade</span>
+            <a href="pages/services.html" class="btn btn-primary btn-sm">View Work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top:3rem;">
+      <a href="pages/services.html" class="btn btn-secondary btn-lg">Explore Materials &amp; Designs</a>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-secondary-section" aria-label="Celebrations gallery">
+  <div class="container-lg">
+    <div class="text-center animate-on-scroll">
+      <span class="section-label">Project Gallery</span>
+      <h2 class="section-title">Architectural Installations</h2>
+      <p class="section-desc">Browse our completed projects showcasing custom residential gates, window grills, and balcony railings across premium properties.</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
+      <button class="btn btn-primary btn-sm" data-filter="all">All Projects</button>
+      <button class="btn btn-secondary btn-sm" data-filter="ms">Mild Steel (MS)</button>
+      <button class="btn btn-secondary btn-sm" data-filter="ss">Stainless Steel (SS)</button>
+      <button class="btn btn-secondary btn-sm" data-filter="aluminum">Aluminum</button>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item" data-category="ms">
+        <img src="https://images.unsplash.com/photo-1508962914676-134849a727f0?w=600&q=80" alt="Heavy wrought iron main entrance gate detail" loading="lazy" />
+        <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item" data-category="ss">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Luxury villa balcony with Stainless Steel and safety glass railing" loading="lazy" />
+        <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item" data-category="aluminum">
+        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80" alt="Minimalist geometric CNC laser-cut aluminum privacy screen" loading="lazy" />
+        <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item" data-category="ms">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80" alt="Modern powder-coated mild steel slide driveway gate" loading="lazy" />
+        <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item" data-category="ss">
+        <img src="https://images.unsplash.com/photo-1563784462386-044fd95e9852?w=600&q=80" alt="Sleek stainless steel custom staircase handrail" loading="lazy" />
+        <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item" data-category="aluminum">
+        <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=600&q=80" alt="Modern aluminum driveway gates and matching fencing panels" loading="lazy" />
+        <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item" data-category="ms">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Premium residential window safety grills" loading="lazy" />
+        <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item" data-category="ss">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Custom stainless steel balcony safety railing" loading="lazy" />
+        <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 5: TESTIMONIALS ══ -->
+<section class="section" aria-label="Testimonials">
+  <div class="container">
+    <div class="text-center animate-on-scroll">
+      <span class="section-label">Testimonials</span>
+      <h2 class="section-title">What Homeowners &amp; Builders Say</h2>
+      <p class="section-desc">Millimeter-perfect measurements, secure installations, and premium finishes — shared by our home clients and principal architects.</p>
+    </div>
+    <div class="testimonials-grid">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card animate-on-scroll delay-1">
+        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testimonial-text">"Scala Gate &amp; Grill Studio is our trusted partner for residential metal fabrications. Their CAD mockups are extremely accurate, and their workshop crew is fast and professional. Highly recommended for any premium build!"</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRazKp9-alpCutWlL8a2ycCrYxdiLgFavVcfL10ey3MIsYiNl_4raBssTEC&s=10" alt="Priya Sen" loading="lazy" /></div>
+          <div>
+            <div class="testimonial-name">Priya Sen</div>
+            <div class="testimonial-role">Principal Architect, Sen &amp; Co. Designs</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card animate-on-scroll delay-2">
+        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testimonial-text">"We ordered laser-cut safety window grills and balcony railings for our new villa. The steel grade is excellent, and the brushed bronze finish is stunning. The free measurement visit was scheduled on the same day."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Sarah & Kabir Roy" loading="lazy" /></div>
+          <div>
+            <div class="testimonial-name">Sarah &amp; Kabir Roy</div>
+            <div class="testimonial-role">Homeowners, Villa Renovation</div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card animate-on-scroll delay-3">
+        <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <p class="testimonial-text">"Their custom stainless steel gate fabrication is top-notch! They matched our architectural rendering precisely and completed the assembly and installation on-time. Exceptional communication throughout."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&q=80" alt="Ananya Das" loading="lazy" /></div>
+          <div>
+            <div class="testimonial-name">Ananya Das</div>
+            <div class="testimonial-role">Property Developer, Das Estates</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner" aria-label="Call to action">
+  <div class="container">
+    <span class="section-label" style="color:var(--accent);">Consultation &amp; Measurement</span>
+    <h2>Bring Premium Security to Your Property</h2>
+    <p>Whether you need modern CNC-cut mild steel gates, safety balcony railings, or stainless steel safety window grills, book a free site measurement visit today.</p>
+    <div class="cta-actions">
+      <a href="pages/contact.html" class="btn btn-accent btn-lg"><i class="fas fa-ruler-combined"></i> Request Free Visit</a>
+      <a href="pages/contact.html" class="btn btn-ghost btn-lg"><i class="fas fa-phone"></i> Contact a Consultant</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer" aria-label="Site footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="brand" style="text-decoration: none; margin-bottom: 1.5rem; display: inline-flex; align-items: center;">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px; height:22px; color:#fff; display:block;">
+            <path d="M3 21h18" stroke="currentColor" stroke-width="2"/>
+            <path d="M5 21V5c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v16" stroke="currentColor" stroke-width="2"/>
+            <line x1="9" y1="3" x2="9" y2="21" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="15" y1="3" x2="15" y2="21" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="5" y1="9" x2="19" y2="9" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="5" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7 6c1-1 3-1 4 0M13 6c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+            <path d="M7 12c1-1 3-1 4 0M13 12c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+        <span class="brand-name">Scala <span>Gate &amp; Grill</span></span>
+      </a>
+      <p class="footer-desc">Sleek, secure, and architecturally precise residential gates, window grills, and balcony safety railings fabricated in MS, SS, and Aluminum.</p>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="footer-heading">Scala Studio</h4>
+      <ul class="footer-links">
+        <li><a href="index.html" class="footer-link">Home</a></li>
+        <li><a href="pages/about.html" class="footer-link">About Us</a></li>
+        <li><a href="pages/services.html" class="footer-link">Our Services</a></li>
+        <li><a href="pages/blog.html" class="footer-link">Insights &amp; Blog</a></li>
+        <li><a href="pages/contact.html" class="footer-link">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-heading">Services</h4>
+      <ul class="footer-links">
+        <li><a href="pages/services.html" class="footer-link">Mild Steel (MS) Gates</a></li>
+        <li><a href="pages/services.html" class="footer-link">Stainless Steel (SS) Railings</a></li>
+        <li><a href="pages/services.html" class="footer-link">Aluminum Privacy Screens</a></li>
+        <li><a href="pages/services.html" class="footer-link">Window &amp; Balcony Grills</a></li>
+        <li><a href="pages/services.html" class="footer-link">Free Measurement Visits</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="footer-heading">Contact Info</h4>
+      <ul class="footer-links">
+        <li><a href="tel:+919876543210" class="footer-link"><i class="fas fa-phone" style="width:16px;color:var(--accent)"></i> +91 98765 43210</a></li>
+        <li><a href="mailto:hello@scalastudio.in" class="footer-link"><i class="fas fa-envelope" style="width:16px;color:var(--accent)"></i> hello@scalastudio.in</a></li>
+        <li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt" style="width:16px;color:var(--accent)"></i> Anna Nagar, Chennai</a></li>
+        <li><a href="#" class="footer-link"><i class="fas fa-clock" style="width:16px;color:var(--accent)"></i> Mon–Sat: 9AM–6PM</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Scala Gate &amp; Grill Studio. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Safety &amp; Guidelines</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+/* ============================================================
+   RTL SUPPORT — SCALA GATE & GRILL STUDIO
+   ============================================================ */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Header & Mobile Menu */
+[dir="rtl"] .mobile-close {
+  right: unset;
+  left: 1.5rem;
+}
+
+/* About Page Specific */
+[dir="rtl"] .mission-image-badge {
+  right: unset;
+  left: -1rem;
+}
+
+/* Cards & Badges */
+[dir="rtl"] .feature-card {
+  text-align: right;
+}
+[dir="rtl"] .class-badge {
+  left: unset;
+  right: 1rem;
+}
+[dir="rtl"] .blog-category {
+  left: unset;
+  right: 1rem;
+}
+[dir="rtl"] .package-badge {
+  right: unset;
+  left: 2rem;
+}
+[dir="rtl"] .popular-badge {
+  left: 50%;
+  transform: translateX(-50%);
+  right: unset;
+}
+
+/* Footer & Underlines */
+[dir="rtl"] .footer-grid {
+  direction: rtl;
+}
+[dir="rtl"] .footer-heading::after {
+  left: unset;
+  right: 0;
+}
+[dir="rtl"] .footer-link::before {
+  display: none;
+}
+[dir="rtl"] .footer-link:hover {
+  padding-left: 0;
+  padding-right: 8px;
+}
+
+/* Forms & Password Toggle */
+[dir="rtl"] .form-group label {
+  text-align: right;
+}
+[dir="rtl"] .password-toggle .toggle-btn {
+  right: unset;
+  left: 1rem;
+}
+
+/* Table Alignment */
+[dir="rtl"] .schedule-table th,
+[dir="rtl"] .schedule-table td {
+  text-align: right;
+}
+
+/* Toast Notification Positioning */
+[dir="rtl"] .toast-container {
+  right: unset;
+  left: 1.5rem;
+}
+
+/* Back to Top — mirror to left side in RTL */
+[dir="rtl"] .back-to-top {
+  right: unset;
+  left: 1.5rem;
+}
+@media (max-width: 480px) {
+  [dir="rtl"] .back-to-top {
+    right: unset;
+    left: 1rem;
+  }
+}
+
+/* RTL Search Box Overlap Fix */
+[dir="rtl"] .search-input {
+  padding-right: 1.2rem !important;
+  padding-left: 3rem !important; /* Avoid text overlapping with the search icon on the left */
+}
+[dir="rtl"] .search-btn {
+  right: unset !important;
+  left: 1rem !important;
+}

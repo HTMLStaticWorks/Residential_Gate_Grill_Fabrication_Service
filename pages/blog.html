@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Scala Gate &amp; Grill Studio Blog — Professional residential gate design guides, window safety grill installation tips, and steel alloy choosing advice." />
+  <title>Insights &amp; Blog — Scala Gate &amp; Grill Studio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23181818%22/><path d=%22M25 80V35c0-5 5-10 10-10h30c5 0 10 5 10 10v45M40 25v55M60 25v55M25 50h50M25 65h50%22 stroke=%22%23ae9e7c%22 stroke-width=%226%22 stroke-linecap=%22round%22 fill=%22none%22/></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <link id="rtl-stylesheet" rel="stylesheet" href="../assets/css/rtl.css" disabled />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .blog-filter { display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem; }
+    .blog-filter-btn { padding:.5rem 1.3rem;border:2px solid var(--border);border-radius:var(--radius-full);font-weight:500;font-size:.85rem;color:var(--text-secondary);transition:var(--transition-bounce);background:var(--bg-card); }
+    .blog-filter-btn:hover,.blog-filter-btn.active { background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-2px); }
+    .featured-post { display:grid;grid-template-columns:1fr;gap:2rem;margin-bottom:4rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden; }
+    @media(min-width:1025px){ .featured-post { grid-template-columns:1.5fr 1fr; } }
+    .featured-post-img { height:320px;overflow:hidden; }
+    @media(min-width:768px){ .featured-post-img { height:420px; } }
+    @media(min-width:1024px){ .featured-post-img { height:480px; } }
+    @media(min-width:1025px){ .featured-post-img { height:100%; } }
+    .featured-post-img img { width:100%;height:100%;object-fit:cover;transition:transform .5s ease; }
+    .featured-post:hover .featured-post-img img { transform:scale(1.05); }
+    .featured-post-body { padding:2.5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center; }
+    .sidebar-card { background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;margin-bottom:1.5rem; }
+    .sidebar-card h4 { margin-bottom:1.25rem;font-size:1.1rem; }
+    .recent-post { display:flex;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--border);transition:var(--transition); }
+    .recent-post:last-child { border-bottom:none; }
+    .recent-post:hover { padding-left:.5rem; }
+    .recent-post-img { width:64px;height:64px;border-radius:var(--radius-sm);overflow:hidden;flex-shrink:0; }
+    .recent-post-img img { width:100%;height:100%;object-fit:cover; }
+    .recent-post-title { font-weight:500;font-size:.88rem;margin-bottom:.3rem;transition:var(--transition); }
+    .recent-post:hover .recent-post-title { color:var(--primary); }
+    .recent-post-date { font-size:.78rem;color:var(--text-light); }
+    .tags { display:flex;flex-wrap:wrap;gap:.5rem; }
+    .tag-pill { padding:.3rem .9rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-full);font-size:.8rem;color:var(--text-secondary);transition:var(--transition-bounce);cursor:pointer; }
+    .tag-pill:hover { background:var(--primary);border-color:var(--primary);color:#fff;transform:scale(1.05); }
+    .main-blog-grid { display:grid;grid-template-columns:1fr;gap:3rem; }
+    @media(min-width:1024px){ .main-blog-grid { grid-template-columns:2fr 1fr; } }
+    @media(max-width:1023px){
+      .main-blog-grid > aside {
+        order: -1;
+      }
+    }
+    @media(max-width:360px) {
+      .section[aria-label="Newsletter"] form input,
+      .section[aria-label="Newsletter"] form button {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    }
+    @media(min-width: 1024px) {
+      #glass-balustrade-card {
+        display: none !important;
+      }
+    }
+    #extra-1440-card {
+      display: none !important;
+    }
+    @media(min-width: 1440px) {
+      #extra-1440-card {
+        display: flex !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <nav class="nav-container">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px; height:22px; color:#fff; display:block;">
+          <path d="M3 21h18" stroke="currentColor" stroke-width="2"/>
+          <path d="M5 21V5c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v16" stroke="currentColor" stroke-width="2"/>
+          <line x1="9" y1="3" x2="9" y2="21" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="15" y1="3" x2="15" y2="21" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="5" y1="9" x2="19" y2="9" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="5" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M7 6c1-1 3-1 4 0M13 6c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+          <path d="M7 12c1-1 3-1 4 0M13 12c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <span class="brand-name">Scala <span>Gate &amp; Grill</span></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../index.html" class="nav-link">Home</a></li>
+      <li><a href="home2.html" class="nav-link">Home 2</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="blog.html" class="nav-link active">Blog</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" onclick="window.Scala.RTLManager.toggle()" title="Toggle RTL" aria-label="Toggle RTL" style="font-size: 0.78rem; font-weight: 550;">RTL</button>
+      <button class="nav-icon-btn" onclick="window.Scala.ThemeManager.toggle()" title="Toggle Theme" aria-label="Toggle theme"><i class="theme-toggle-icon fas fa-moon"></i></button>
+      <a href="login.html" class="btn btn-primary btn-sm">Login</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="mobile-menu" role="dialog" aria-modal="true">
+  <button class="mobile-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+  <a href="../index.html" class="nav-link">Home</a>
+  <a href="home2.html" class="nav-link">Home 2</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="blog.html" class="nav-link active">Blog</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <div class="mobile-menu-actions">
+    <div class="mobile-menu-row">
+      <button class="btn btn-ghost" onclick="window.Scala.RTLManager.toggle()" style="font-weight: 550;">RTL</button>
+      <button class="btn btn-ghost" onclick="window.Scala.ThemeManager.toggle()"><i class="theme-toggle-icon fas fa-moon"></i></button>
+    </div>
+    <a href="login.html" class="btn btn-primary">Login</a>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-container">
+    <div class="page-header-content">
+      <h1>Metalwork &amp; Fabrication Insights</h1>
+      <p>Professional gate design guides, window safety grill installation tips, steel alloy choices, and architectural inspiration straight from our studio.</p>
+    </div>
+    <div class="page-header-image">
+      <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80" alt="Scala Gate &amp; Grill Blog" />
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 2: BLOG GRID + SIDEBAR ══ -->
+<section class="section bg-secondary-section" aria-label="Blog posts">
+  <div class="container">
+    <div class="text-center animate-on-scroll" style="margin-bottom:2rem;">
+      <span class="section-label">All Articles</span>
+      <h2 class="section-title">Latest from Our Studio</h2>
+    </div>
+    <div class="blog-filter">
+      <button class="blog-filter-btn active" data-filter="all">All</button>
+      <button class="blog-filter-btn" data-filter="guides">Fabrication Guides</button>
+      <button class="blog-filter-btn" data-filter="materials">Material Selection</button>
+      <button class="blog-filter-btn" data-filter="antirust">Anti-Rust Tips</button>
+      <button class="blog-filter-btn" data-filter="cases">Case Studies</button>
+    </div>
+
+    <div class="main-blog-grid">
+      <!-- Posts -->
+      <div>
+        <div class="blog-grid">
+          <!-- Post 1 -->
+          <div class="blog-card animate-on-scroll delay-1" data-category="materials">
+            <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80" alt="Choosing Driveway Gate Alloys" loading="lazy" /></div>
+            <div class="blog-card-body">
+              <div class="blog-meta"><span><i class="fas fa-calendar"></i> Dec 5, 2024</span><span><i class="fas fa-clock"></i> 5 min</span></div>
+              <h3>How to Choose the Right Metal Alloy for Driveway Gates</h3>
+              <p>Learn the core differences between Mild Steel (MS), Stainless Steel (SS), and Aluminum in terms of strength, corrosion resistance, and cost.</p>
+              <a href="#" class="blog-read-more">Read More</a>
+            </div>
+          </div>
+          <!-- Post 2 -->
+          <div class="blog-card animate-on-scroll delay-2" data-category="guides">
+            <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&q=80" alt="Balcony Safety Grill Designs" loading="lazy" /></div>
+            <div class="blog-card-body">
+              <div class="blog-meta"><span><i class="fas fa-calendar"></i> Nov 28, 2024</span><span><i class="fas fa-clock"></i> 6 min</span></div>
+              <h3>Balcony Safety Grill Designs: Blending Security &amp; Aesthetics</h3>
+              <p>From horizontal louvers to modern CNC-cut screens, explore safety window and balcony grill patterns that protect without feeling like a prison.</p>
+              <a href="#" class="blog-read-more">Read More</a>
+            </div>
+          </div>
+          <!-- Post 3 -->
+          <div class="blog-card animate-on-scroll delay-1" data-category="antirust">
+            <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Understanding Anti-Rust Coatings" loading="lazy" /></div>
+            <div class="blog-card-body">
+              <div class="blog-meta"><span><i class="fas fa-calendar"></i> Nov 20, 2024</span><span><i class="fas fa-clock"></i> 4 min</span></div>
+              <h3>Understanding Anti-Rust Coatings: Red Oxide vs. Powder Coating</h3>
+              <p>A comparative guide on zinc-chromate primers, baked-on powder coats, and polyurethane paints to prevent steel gates from rusting.</p>
+              <a href="#" class="blog-read-more">Read More</a>
+            </div>
+          </div>
+          <!-- Post 4 -->
+          <div id="glass-balustrade-card" class="blog-card animate-on-scroll delay-2" data-category="guides">
+            <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Safety Standards for Balcony Grills" loading="lazy" /></div>
+            <div class="blog-card-body">
+              <div class="blog-meta"><span><i class="fas fa-calendar"></i> Nov 12, 2024</span><span><i class="fas fa-clock"></i> 3 min</span></div>
+              <h3>Safety Standards for Balcony Grills in Apartment High-Rises</h3>
+              <p>A detailed breakdown of kid-safe grill vertical spacing limits, emergency escape hatch requirements, and anchor bolt pull-out stress.</p>
+              <a href="#" class="blog-read-more">Read More</a>
+            </div>
+          </div>
+          <!-- Post 5 -->
+          <div id="extra-1440-card" class="blog-card animate-on-scroll delay-1" data-category="cases">
+            <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Smart Gate Automation Arm Systems" loading="lazy" /></div>
+            <div class="blog-card-body">
+              <div class="blog-meta"><span><i class="fas fa-calendar"></i> Nov 05, 2024</span><span><i class="fas fa-clock"></i> 7 min</span></div>
+              <h3>Smart Gate Automation: Choosing the Right Motorized Arms</h3>
+              <p>A walkthrough of swing vs. sliding automatic motor systems, battery backups, and infrared safety sensors for residential estates.</p>
+              <a href="#" class="blog-read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem;">
+          <a href="#" class="btn btn-secondary btn-lg">Load More Articles <i class="fas fa-chevron-down"></i></a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="sidebar-card animate-on-scroll">
+          <h4>Search</h4>
+          <div class="search-box-wrapper">
+            <input type="search" class="form-control search-input" placeholder="Search articles..." aria-label="Search articles" />
+            <button class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+
+        <div class="sidebar-card animate-on-scroll delay-1">
+          <h4>Recent Posts</h4>
+          <div class="recent-post"><div class="recent-post-img"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=120&q=60" alt="Recent post" loading="lazy" /></div><div><div class="recent-post-title">Choosing Driveway Gate Alloys</div><div class="recent-post-date">Dec 5, 2024</div></div></div>
+          <div class="recent-post"><div class="recent-post-img"><img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=120&q=60" alt="Recent post" loading="lazy" /></div><div><div class="recent-post-title">Balcony Safety Grill Designs</div><div class="recent-post-date">Nov 28, 2024</div></div></div>
+          <div class="recent-post"><div class="recent-post-img"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=120&q=60" alt="Recent post" loading="lazy" /></div><div><div class="recent-post-title">Understanding Anti-Rust Coatings</div><div class="recent-post-date">Nov 20, 2024</div></div></div>
+        </div>
+        <div class="sidebar-card animate-on-scroll delay-2">
+          <h4>Popular Tags</h4>
+          <div class="tags">
+            <span class="tag-pill">Driveway Gates</span><span class="tag-pill">Balcony Railings</span><span class="tag-pill">Window Grills</span><span class="tag-pill">CNC Laser Screens</span><span class="tag-pill">Rust Prevention</span><span class="tag-pill">Smart Automation</span><span class="tag-pill">Stainless Steel</span><span class="tag-pill">Mild Steel</span><span class="tag-pill">Slam Protection</span>
+          </div>
+        </div>
+        <div class="sidebar-card animate-on-scroll delay-3" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));border-color:transparent;">
+          <h4 style="color:#fff;margin-bottom:.75rem;">Free Fabrication Proposal</h4>
+          <p style="color:rgba(255,255,255,.85);font-size:.9rem;margin-bottom:1.25rem;">Share your property photos or building layout blueprint. We will suggest a custom gate/grill layout and provide a free quote!</p>
+          <a href="contact.html" class="btn btn-white btn-sm" style="width:100%;justify-content:center;">Get Free Quote</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 3: FAQ ══ -->
+<section class="section" aria-label="FAQ">
+  <div class="container" style="max-width:800px;">
+    <div class="text-center animate-on-scroll">
+      <span class="section-label">Site Audits &amp; Standards</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-desc">Quick answers about our gate and safety grill fabrication services. Still have doubts? Drop us a message anytime!</p>
+    </div>
+    <div style="margin-top:2rem;">
+      <div class="faq-item animate-on-scroll delay-1">
+        <div class="faq-question">Do you provide measurement and installation at the property? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>Yes! We handle the complete process. Our team conducts on-site measurements, transports the custom-fabricated gates or grills to your property, and performs complete anchoring and weld-fitting on-site.</p></div>
+      </div>
+      <div class="faq-item animate-on-scroll delay-2">
+        <div class="faq-question">How far in advance should I place a fabrication order? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>We recommend booking at least 10–14 days in advance for standard safety grills. For complex motorized driveway gates requiring custom 3D CAD design blueprints, booking 3–4 weeks ahead is ideal.</p></div>
+      </div>
+      <div class="faq-item animate-on-scroll delay-3">
+        <div class="faq-question">Can I provide my own theme references or custom CNC gate patterns? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>Absolutely! We love working with custom designs. Send us images, CAD drawings, or theme references and our design engineers will incorporate them into your laser-cut panels.</p></div>
+      </div>
+      <div class="faq-item animate-on-scroll delay-4">
+        <div class="faq-question">What metal alloys do you support? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>We work with high-quality structural materials including heavy Mild Steel (MS) profiles, corrosion-free Stainless Steel (SS 304 and marine-grade SS 316), and lightweight non-corrosive powder-coated Aluminum louvers.</p></div>
+      </div>
+      <div class="faq-item animate-on-scroll delay-5">
+        <div class="faq-question">Do you offer smart automated motorized driveway gates? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-answer"><p>Yes! We offer smart automation integrations with heavy-duty motorized opening arm kits, remote control keyfobs, battery backups, and safety infrared sensors to prevent slamming.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 4: NEWSLETTER ══ -->
+
+
+<section class="cta-banner"><div class="container">
+  <span class="section-label" style="color:var(--accent)">Book Measurement Visit</span>
+  <h2>Let's Secure Your Property Together</h2>
+  <p>Share your property spans and we'll put together a professional, personalized fabrication proposal with 3D design preview — completely free.</p>
+  <div class="cta-actions"><a href="contact.html" class="btn btn-accent btn-lg"><i class="fas fa-calendar-check"></i> Book Site Measurement</a><a href="services.html" class="btn btn-ghost btn-lg"><i class="fas fa-gift"></i> View Installation Suites</a></div>
+</div></section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="../index.html" class="brand" style="text-decoration: none; margin-bottom: 1.5rem; display: inline-flex; align-items: center;">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px; height:22px; color:#fff; display:block;">
+            <path d="M3 21h18" stroke="currentColor" stroke-width="2"/>
+            <path d="M5 21V5c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v16" stroke="currentColor" stroke-width="2"/>
+            <line x1="9" y1="3" x2="9" y2="21" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="15" y1="3" x2="15" y2="21" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="5" y1="9" x2="19" y2="9" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="5" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7 6c1-1 3-1 4 0M13 6c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+            <path d="M7 12c1-1 3-1 4 0M13 12c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+        <span class="brand-name">Scala <span>Gate &amp; Grill</span></span>
+      </a>
+      <p class="footer-desc">Sleek, secure, and architecturally precise residential gates, window grills, and balcony safety railings fabricated in MS, SS, and Aluminum.</p>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div><h4 class="footer-heading">Scala Studio</h4><ul class="footer-links"><li><a href="../index.html" class="footer-link">Home</a></li><li><a href="about.html" class="footer-link">About Us</a></li><li><a href="services.html" class="footer-link">Our Services</a></li><li><a href="blog.html" class="footer-link">Insights &amp; Blog</a></li><li><a href="contact.html" class="footer-link">Contact Us</a></li></ul></div>
+    <div><h4 class="footer-heading">Services</h4><ul class="footer-links"><li><a href="services.html" class="footer-link">Mild Steel (MS) Gates</a></li><li><a href="services.html" class="footer-link">Stainless Steel (SS) Railings</a></li><li><a href="services.html" class="footer-link">Aluminum Privacy Screens</a></li><li><a href="services.html" class="footer-link">Window &amp; Balcony Grills</a></li><li><a href="services.html" class="footer-link">Free Measurement Visits</a></li></ul></div>
+    <div><h4 class="footer-heading">Contact Info</h4><ul class="footer-links"><li><a href="tel:+919876543210" class="footer-link"><i class="fas fa-phone" style="width:16px;color:var(--accent)"></i> +91 98765 43210</a></li><li><a href="mailto:hello@scalastudio.in" class="footer-link"><i class="fas fa-envelope" style="width:16px;color:var(--accent)"></i> hello@scalastudio.in</a></li><li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt" style="width:16px;color:var(--accent)"></i> Anna Nagar, Chennai</a></li><li><a href="#" class="footer-link"><i class="fas fa-clock" style="width:16px;color:var(--accent)"></i> Mon–Sat: 9AM–6PM</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Scala Gate &amp; Grill Studio. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

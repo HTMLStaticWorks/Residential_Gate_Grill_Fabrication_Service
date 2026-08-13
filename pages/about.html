@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Scala Gate &amp; Grill Studio — Our history, metal fabrication values, and the expert welding and engineering team behind Chennai's premier gate &amp; grill studio." />
+  <title>About Us — Scala Gate &amp; Grill Studio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23181818%22/><path d=%22M25 80V35c0-5 5-10 10-10h30c5 0 10 5 10 10v45M40 25v55M60 25v55M25 50h50M25 65h50%22 stroke=%22%23ae9e7c%22 stroke-width=%226%22 stroke-linecap=%22round%22 fill=%22none%22/></svg>">
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/dark-mode.css" />
+  <link id="rtl-stylesheet" rel="stylesheet" href="../assets/css/rtl.css" disabled />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .mission-grid { display:grid; grid-template-columns:1fr; gap:3rem; align-items:center; }
+    @media(min-width:1024px){ .mission-grid { grid-template-columns:1fr 1fr; } }
+    .mission-image { position:relative; border-radius:var(--radius-xl); overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow-md); }
+    .mission-image img { width:100%; height:auto; display:block; object-fit:contain; }
+    .mission-image-badge {
+      position:absolute; bottom:2rem; right:-1rem;
+      background:linear-gradient(135deg,var(--primary),var(--primary-light));
+      color:#fff; padding:1.25rem 1.75rem; border-radius:var(--radius-lg);
+      box-shadow:var(--shadow-lg); text-align:center;
+    }
+    .mission-image-badge .big { font-family:var(--font-display);font-size:2.5rem;font-weight:550;display:block;line-height:1; }
+    .mission-image-badge small { font-size:.8rem;opacity:.9; }
+    .values-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; }
+    @media(min-width:768px) and (max-width:1200px){
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .value-card {
+      padding:0 0 1.5rem 0; border-radius:var(--radius-lg); text-align:center;
+      border:1px solid var(--border); background:var(--bg-card);
+      transition:var(--transition-bounce);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .value-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); border-color:var(--primary); }
+    .value-card-img-wrapper {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+    .value-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .value-card:hover .value-card-img {
+      transform: scale(1.08);
+    }
+    .value-card-content {
+      padding: 0 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .value-card-content h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+    .value-card-content p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .value-icon { font-size:2rem; display:block; margin-bottom:0.75rem; }
+    @media (min-width: 768px) and (max-width: 1200px) {
+      .about-team-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .about-team-grid .team-card:nth-child(4) {
+        grid-column: span 1 !important;
+        justify-self: auto !important;
+        max-width: none !important;
+        width: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <nav class="nav-container">
+    <a href="../index.html" class="brand">
+      <div class="brand-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px; height:22px; color:#fff; display:block;">
+          <path d="M3 21h18" stroke="currentColor" stroke-width="2"/>
+          <path d="M5 21V5c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v16" stroke="currentColor" stroke-width="2"/>
+          <line x1="9" y1="3" x2="9" y2="21" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="15" y1="3" x2="15" y2="21" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="5" y1="9" x2="19" y2="9" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="5" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M7 6c1-1 3-1 4 0M13 6c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+          <path d="M7 12c1-1 3-1 4 0M13 12c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+        </svg>
+      </div>
+      <span class="brand-name">Scala <span>Gate &amp; Grill</span></span>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="../index.html" class="nav-link">Home</a></li>
+      <li><a href="home2.html" class="nav-link">Home 2</a></li>
+      <li><a href="about.html" class="nav-link active">About</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" onclick="window.Scala.RTLManager.toggle()" title="Toggle RTL" aria-label="Toggle RTL" style="font-size: 0.78rem; font-weight: 550;">RTL</button>
+      <button class="nav-icon-btn" onclick="window.Scala.ThemeManager.toggle()" title="Toggle Theme" aria-label="Toggle theme"><i class="theme-toggle-icon fas fa-moon"></i></button>
+      <a href="login.html" class="btn btn-primary btn-sm">Login</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="mobile-menu" role="dialog" aria-modal="true">
+  <button class="mobile-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
+  <a href="../index.html" class="nav-link">Home</a>
+  <a href="home2.html" class="nav-link">Home 2</a>
+  <a href="about.html" class="nav-link active">About</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="blog.html" class="nav-link">Blog</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <div class="mobile-menu-actions">
+    <div class="mobile-menu-row">
+      <button class="btn btn-ghost" onclick="window.Scala.RTLManager.toggle()" style="font-weight: 550;">RTL</button>
+      <button class="btn btn-ghost" onclick="window.Scala.ThemeManager.toggle()"><i class="theme-toggle-icon fas fa-moon"></i></button>
+    </div>
+    <a href="login.html" class="btn btn-primary">Login</a>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-container">
+    <div class="page-header-content">
+      <h1>Our Story</h1>
+      <p>From heavy custom steel structures to modern laser-cut partitions, explore the craftsmanship and engineering behind our studio.</p>
+    </div>
+    <div class="page-header-image">
+      <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1440&q=80" alt="Scala Gate &amp; Grill Studio Metal Fabrication Workshop" />
+    </div>
+  </div>
+</div>
+
+<!-- ══ SECTION 1: MISSION & STORY ══ -->
+<section class="section" aria-label="Our mission">
+  <div class="container">
+    <div class="mission-grid">
+      <div class="animate-on-scroll" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+        <span class="section-label">Our Mission</span>
+        <h2 class="section-title">A Legacy of Iron &amp; Steel</h2>
+        <p style="margin-bottom:1.5rem;">Founded in 2011 by Kavya Raghavan, Scala Gate &amp; Grill Studio began with a simple mission: to combine high-integrity metallurgy with modern residential architecture. What started as a small local welding workshop has grown into a state-of-the-art metal fabrication facility. We specialize in custom-tailored driveway gates, security window grills, and balcony safety railings, serving residential developments and leading architects across Chennai.</p>
+        <div class="about-actions" style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+          <a href="contact.html" class="btn btn-primary"><i class="fas fa-ruler-combined"></i> Book Site Measurement</a>
+        </div>
+      </div>
+      <div class="mission-image animate-on-scroll delay-2">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Scala Gate &amp; Grill Studio Metal Welding Process" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 2: STATS + VALUES ══ -->
+<section class="section bg-secondary-section" aria-label="Our values and stats">
+  <div class="container">
+    <div class="text-center animate-on-scroll">
+      <span class="section-label">By the Numbers</span>
+      <h2 class="section-title">Precision in Numbers</h2>
+    </div>
+    <div class="stats-grid" style="margin-bottom:5rem;">
+      <div class="stat-card animate-on-scroll delay-1">
+        <span class="stat-number" data-counter data-target="2500" data-suffix="+">2,500+</span>
+        <div class="stat-label">Installations Completed</div>
+        <div class="stat-sublabel">Villas, apartments &amp; commercial</div>
+      </div>
+      <div class="stat-card animate-on-scroll delay-2">
+        <span class="stat-number" data-counter data-target="20" data-suffix="">20</span>
+        <div class="stat-label">Fabrication Smiths</div>
+        <div class="stat-sublabel">Certified welding inspectors &amp; fitters</div>
+      </div>
+      <div class="stat-card animate-on-scroll delay-3">
+        <span class="stat-number" data-counter data-target="3" data-suffix="">3</span>
+        <div class="stat-label">Standard Materials</div>
+        <div class="stat-sublabel">Mild Steel, SS, and Aluminum</div>
+      </div>
+      <div class="stat-card animate-on-scroll delay-4">
+        <span class="stat-number" data-counter data-target="15" data-suffix="+">15+</span>
+        <div class="stat-label">Years of Craft</div>
+        <div class="stat-sublabel">Engineering security &amp; elegance</div>
+      </div>
+    </div>
+
+    <div class="text-center animate-on-scroll" style="margin-bottom:2.5rem;">
+      <span class="section-label">Our Values</span>
+      <h2 class="section-title">What We Stand For</h2>
+    </div>
+    <div class="values-grid">
+      <!-- Value 1 -->
+      <div class="value-card animate-on-scroll delay-1">
+        <div class="value-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1534224039826-c7a0dea0e66a?w=600&q=80" alt="Laser Precision" class="value-card-img" />
+        </div>
+        <div class="value-card-content">
+          <h3>Laser Precision</h3>
+          <p>Every sheet profile and joint alignment is designed and cut using computerized CNC systems for a flawless physical match.</p>
+        </div>
+      </div>
+      <!-- Value 2 -->
+      <div class="value-card animate-on-scroll delay-2">
+        <div class="value-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1574634534894-89d7576c8259?w=600&q=80" alt="Premium Alloys" class="value-card-img" />
+        </div>
+        <div class="value-card-content">
+          <h3>Premium Metallurgy</h3>
+          <p>We select high-grade, certified MS, SS 304, and anodized aluminum profiles, ensuring strength and long-term wind resistance.</p>
+        </div>
+      </div>
+      <!-- Value 3 -->
+      <div class="value-card animate-on-scroll delay-3">
+        <div class="value-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Structural Security" class="value-card-img" />
+        </div>
+        <div class="value-card-content">
+          <h3>Structural Security</h3>
+          <p>All gates, high-rise grills, and railings are stress-calculated and anchored using industrial-grade expansion bolts for absolute family safety.</p>
+        </div>
+      </div>
+      <!-- Value 4 -->
+      <div class="value-card animate-on-scroll delay-4">
+        <div class="value-card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&q=80" alt="Unique Customization" class="value-card-img" />
+        </div>
+        <div class="value-card-content">
+          <h3>Bespoke Designs</h3>
+          <p>No two architectural layouts are alike. We design each project from scratch, tailoring pattern geometry, hinges, and lock slots to match your villa theme.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECTION 3: TEAM ══ -->
+<section class="section" aria-label="Our team">
+  <div class="container">
+    <div class="text-center animate-on-scroll">
+      <span class="section-label">Designers &amp; Smiths</span>
+      <h2 class="section-title">Meet Our Team</h2>
+      <p class="section-desc">Passionate, certified metalworking craftsmen and design engineers dedicated to bringing your residential concepts to life.</p>
+    </div>
+    <div class="team-grid about-team-grid">
+      <!-- Team 1 -->
+      <div class="team-card animate-on-scroll delay-1">
+        <div class="team-avatar">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80" alt="Vikram Sen" loading="lazy" />
+          <div class="team-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <h3 class="team-name">Vikram Sen</h3>
+        <div class="team-role">Founder &amp; Chief Architect</div>
+        <p class="team-desc">National Institute of Design. 15+ years of residential aesthetics, steel structuring, and metal art.</p>
+      </div>
+      <!-- Team 2 -->
+      <div class="team-card animate-on-scroll delay-2">
+        <div class="team-avatar">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80" alt="Rajesh Nair" loading="lazy" />
+          <div class="team-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <h3 class="team-name">Rajesh Nair</h3>
+        <div class="team-role">Head CNC Machinist</div>
+        <p class="team-desc">Specializes in geometric CAD design, fiber laser cutting sheets, and metal screen layout optimization.</p>
+      </div>
+      <!-- Team 3 -->
+      <div class="team-card animate-on-scroll delay-3">
+        <div class="team-avatar">
+          <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&q=80" alt="Amit Mishra" loading="lazy" />
+          <div class="team-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <h3 class="team-name">Amit Mishra</h3>
+        <div class="team-role">Lead Welder &amp; Fitter</div>
+        <p class="team-desc">AWS Certified welder. Expert in high-pressure joints, stainless steel stair balustrades, and structural frames.</p>
+      </div>
+      <!-- Team 4 -->
+      <div class="team-card animate-on-scroll delay-4">
+        <div class="team-avatar">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&q=80" alt="Sneha Reddy" loading="lazy" />
+          <div class="team-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <h3 class="team-name">Sneha Reddy</h3>
+        <div class="team-role">Senior CAD Modeler</div>
+        <p class="team-desc">Expert in 3D architectural mockups, column layout fitment planning, and metal weight stress verification.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner"><div class="container">
+  <span class="section-label" style="color:var(--accent)">Start Your Project</span>
+  <h2>Ready to Secure Your Home?</h2>
+  <p>Every gate and window grill is fabricated to order. Discuss your security needs, material choices, and budget with a fabrication specialist.</p>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn btn-accent btn-lg"><i class="fas fa-ruler-combined"></i> Book Site Measurement</a>
+    <a href="contact.html" class="btn btn-ghost btn-lg"><i class="fas fa-envelope"></i> Ask a Question</a>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="../index.html" class="brand" style="text-decoration: none; margin-bottom: 1.5rem; display: inline-flex; align-items: center;">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:22px; height:22px; color:#fff; display:block;">
+            <path d="M3 21h18" stroke="currentColor" stroke-width="2"/>
+            <path d="M5 21V5c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2v16" stroke="currentColor" stroke-width="2"/>
+            <line x1="9" y1="3" x2="9" y2="21" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="15" y1="3" x2="15" y2="21" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="5" y1="9" x2="19" y2="9" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="5" y1="15" x2="19" y2="15" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M7 6c1-1 3-1 4 0M13 6c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+            <path d="M7 12c1-1 3-1 4 0M13 12c1-1 3-1 4 0" stroke="var(--accent)" stroke-width="1.2" fill="none"/>
+          </svg>
+        </div>
+        <span class="brand-name">Scala <span>Gate &amp; Grill</span></span>
+      </a>
+      <p class="footer-desc">Sleek, secure, and architecturally precise residential gates, window grills, and balcony safety railings fabricated in MS, SS, and Aluminum.</p>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-link" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div><h4 class="footer-heading">Scala Studio</h4><ul class="footer-links"><li><a href="../index.html" class="footer-link">Home</a></li><li><a href="about.html" class="footer-link">About Us</a></li><li><a href="services.html" class="footer-link">Our Services</a></li><li><a href="blog.html" class="footer-link">Insights &amp; Blog</a></li><li><a href="contact.html" class="footer-link">Contact Us</a></li></ul></div>
+    <div><h4 class="footer-heading">Services</h4><ul class="footer-links"><li><a href="services.html" class="footer-link">Mild Steel (MS) Gates</a></li><li><a href="services.html" class="footer-link">Stainless Steel (SS) Railings</a></li><li><a href="services.html" class="footer-link">Aluminum Privacy Screens</a></li><li><a href="services.html" class="footer-link">Window &amp; Balcony Grills</a></li><li><a href="services.html" class="footer-link">Free Measurement Visits</a></li></ul></div>
+    <div><h4 class="footer-heading">Contact Info</h4><ul class="footer-links"><li><a href="tel:+919876543210" class="footer-link"><i class="fas fa-phone" style="width:16px;color:var(--accent)"></i> +91 98765 43210</a></li><li><a href="mailto:hello@scalastudio.in" class="footer-link"><i class="fas fa-envelope" style="width:16px;color:var(--accent)"></i> hello@scalastudio.in</a></li><li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt" style="width:16px;color:var(--accent)"></i> Anna Nagar, Chennai</a></li><li><a href="#" class="footer-link"><i class="fas fa-clock" style="width:16px;color:var(--accent)"></i> Mon–Sat: 9AM–6PM</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Scala Gate &amp; Grill Studio. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div></div>
+</footer>
+<button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
