@@ -2364,3 +2364,39 @@ select.form-control { appearance: none; cursor: pointer; }
   }
 }
 
+/* ============================================================
+   LIGHT MODE ACCESSIBILITY & CONTRAST ADJUSTMENTS
+   ============================================================ */
+
+/* Testimonials Section Heading and Text Contrast in Light Mode */
+[data-theme="light"] section[aria-label="Testimonials"] .section-label {
+  color: #2e3a46; /* Stronger, darker slate grey for the label */
+  font-weight: 600;
+}
+
+[data-theme="light"] section[aria-label="Testimonials"] .section-title {
+  color: #0b0c10; /* Near-black for maximum heading contrast */
+}
+
+[data-theme="light"] section[aria-label="Testimonials"] .section-desc {
+  color: #333333; /* Darker charcoal description text */
+}
+
+[data-theme="light"] .testimonial-text {
+  color: #1a1a1a; /* Darker italic body text inside card */
+}
+
+[data-theme="light"] .testimonial-name {
+  color: #0b0c10; /* Near-black author name */
+}
+
+[data-theme="light"] .testimonial-role {
+  color: #4e4b42; /* Much higher contrast than the soft warm metallic grey */
+}
+
+/* CTA Banner (Above Footer Section) Contrast in Light Mode */
+[data-theme="light"] .cta-banner .section-label {
+  color: #c8d3de !important; /* High-contrast light slate blue on the dark banner background */
+}
+
+
