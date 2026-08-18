@@ -6,13 +6,13 @@
 
 /* ── CSS Variables ── */
 :root {
-  --primary: #8e7d5a;         /* Warm Brushed Bronze */
-  --primary-dark: #6c5e42;    /* Darker Bronze Hover States */
-  --primary-light: #ae9e7c;   /* Warm Neutral Light Bronze */
+  --primary: #bda16d;         /* Royal Gold (Matches Logo) */
+  --primary-dark: #9c8353;    /* Darker Royal Gold Hover States */
+  --primary-light: #d7ba8d;   /* Light Warm Gold Accent */
   --secondary: #181818;       /* Powder-Coated Steel Charcoal Black */
   --secondary-light: #2e2e2e; /* Muted Charcoal Black */
-  --accent: #ae9e7c;          /* Bronze Highlights */
-  --accent-2: #8e7d5a;        /* Secondary Warm Bronze */
+  --accent: #bda16d;          /* Royal Gold Highlights */
+  --accent-2: #d7ba8d;        /* Secondary Warm Gold Accent */
   --white: #ffffff;
   --off-white: #f7f6f2;       /* Light Warm Off-White */
   --text-primary: #181818;    /* Steel Charcoal */
@@ -212,14 +212,16 @@ strong, b {
 .brand-logo {
   width: 44px;
   height: 44px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
   transition: var(--transition-bounce);
-  box-shadow: 0 4px 16px rgba(194, 99, 27, 0.3);
+}
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 .brand:hover .brand-logo { transform: rotate(15deg) scale(1.1); }
 .brand-name {
@@ -2283,5 +2285,46 @@ select.form-control { appearance: none; cursor: pointer; }
     justify-self: center;
     width: 100%;
     max-width: 280px;
+  }
+}
+
+/* Custom responsive override for 368px screens to place hero background image after the text content */
+@media (max-width: 368px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    background: var(--secondary);
+  }
+  .hero-bg {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+    order: 2;
+    margin-top: 1.5rem;
+  }
+  .hero-bg img {
+    position: relative;
+    opacity: 1;
+    transform: none !important;
+    animation: none !important;
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+  }
+  .hero-container {
+    position: relative;
+    padding-top: calc(var(--nav-height) + 1.5rem);
+    padding-bottom: 0.5rem;
+    order: 1;
+  }
+  .hero-overlay {
+    display: none;
+  }
+  .hero-particles {
+    display: none;
   }
 }
