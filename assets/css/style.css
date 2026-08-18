@@ -1399,7 +1399,13 @@ select.form-control { appearance: none; cursor: pointer; }
 }
 .auth-logo .brand-name {
   color: var(--text-primary);
-  font-size: 1.25rem;
+  font-family: var(--font-display);
+  font-weight: 580;
+  font-size: 1.35rem;
+  letter-spacing: -0.5px;
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1;
 }
 .auth-title { font-size: 2rem; margin-bottom: 0.5rem; text-align: center; }
 .auth-subtitle { color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem; text-align: center; }

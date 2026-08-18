@@ -11,57 +11,623 @@
   <link id="rtl-stylesheet" rel="stylesheet" href="../assets/css/rtl.css" disabled />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    .blog-filter { display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem; }
-    .blog-filter-btn { padding:.5rem 1.3rem;border:2px solid var(--border);border-radius:var(--radius-full);font-weight:500;font-size:.85rem;color:var(--text-secondary);transition:var(--transition-bounce);background:var(--bg-card); }
-    .blog-filter-btn:hover,.blog-filter-btn.active { background:var(--primary);border-color:var(--primary);color:#fff;transform:translateY(-2px); }
-    .featured-post { display:grid;grid-template-columns:1fr;gap:2rem;margin-bottom:4rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden; }
-    @media(min-width:1025px){ .featured-post { grid-template-columns:1.5fr 1fr; } }
-    .featured-post-img { height:320px;overflow:hidden; }
-    @media(min-width:768px){ .featured-post-img { height:420px; } }
-    @media(min-width:1024px){ .featured-post-img { height:480px; } }
-    @media(min-width:1025px){ .featured-post-img { height:100%; } }
-    .featured-post-img img { width:100%;height:100%;object-fit:cover;transition:transform .5s ease; }
-    .featured-post:hover .featured-post-img img { transform:scale(1.05); }
-    .featured-post-body { padding:2.5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center; }
-    .sidebar-card { background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.75rem;margin-bottom:1.5rem; }
-    .sidebar-card h4 { margin-bottom:1.25rem;font-size:1.1rem; }
-    .recent-post { display:flex;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--border);transition:var(--transition); }
-    .recent-post:last-child { border-bottom:none; }
-    .recent-post:hover { padding-left:.5rem; }
-    .recent-post-img { width:64px;height:64px;border-radius:var(--radius-sm);overflow:hidden;flex-shrink:0; }
-    .recent-post-img img { width:100%;height:100%;object-fit:cover; }
-    .recent-post-title { font-weight:500;font-size:.88rem;margin-bottom:.3rem;transition:var(--transition); }
-    .recent-post:hover .recent-post-title { color:var(--primary); }
-    .recent-post-date { font-size:.78rem;color:var(--text-light); }
-    .tags { display:flex;flex-wrap:wrap;gap:.5rem; }
-    .tag-pill { padding:.3rem .9rem;background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-full);font-size:.8rem;color:var(--text-secondary);transition:var(--transition-bounce);cursor:pointer; }
-    .tag-pill:hover { background:var(--primary);border-color:var(--primary);color:#fff;transform:scale(1.05); }
-    .main-blog-grid { display:grid;grid-template-columns:1fr;gap:3rem; }
-    @media(min-width:1024px){ .main-blog-grid { grid-template-columns:2fr 1fr; } }
-    @media(max-width:1023px){
+    /* ── Featured Post ── */
+    .featured-post-container {
+      margin-bottom: 3.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      transition: var(--transition-bounce);
+    }
+    @media (max-width: 991px) {
+      .featured-post-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    .featured-post-container:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg), 0 10px 30px rgba(189, 161, 109, 0.08);
+      border-color: var(--primary);
+    }
+    .featured-post-image-pane {
+      position: relative;
+      height: 100%;
+      min-height: 280px;
+      overflow: hidden;
+    }
+    .featured-post-image-pane img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .featured-post-container:hover .featured-post-image-pane img {
+      transform: scale(1.04);
+    }
+    .featured-tag {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+      background: rgba(24, 24, 24, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--primary-light);
+      padding: 0.35rem 0.85rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border: 1px solid var(--primary);
+      border-radius: var(--radius-sm);
+      z-index: 3;
+    }
+    .featured-post-content {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    @media (max-width: 576px) {
+      .featured-post-content {
+        padding: 1.75rem;
+      }
+    }
+    .featured-post-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.82rem;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+    .featured-post-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .featured-post-meta i {
+      color: var(--primary);
+    }
+    .featured-post-content h2 {
+      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      line-height: 1.35;
+      transition: var(--transition);
+    }
+    .featured-post-container:hover .featured-post-content h2 {
+      color: var(--primary);
+    }
+    .featured-post-content p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+    .featured-post-author {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 1.25rem;
+    }
+    .author-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-full);
+      background: var(--primary);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 1px solid var(--border);
+    }
+    .author-info h5 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    .author-info span {
+      font-size: 0.72rem;
+      color: var(--text-light);
+    }
+    .featured-read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      cursor: pointer;
+      width: fit-content;
+    }
+    .featured-read-btn i {
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+    .featured-post-container:hover .featured-read-btn {
+      color: var(--primary);
+    }
+    .featured-post-container:hover .featured-read-btn i {
+      transform: translateX(5px);
+    }
+
+    /* ── Category Filter Pills ── */
+    .blog-filter {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .blog-filter-btn {
+      padding: 0.5rem 1.3rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      transition: var(--transition-bounce);
+      background: var(--bg-card);
+      box-shadow: var(--shadow-sm);
+    }
+    .blog-filter-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+    .blog-filter-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      box-shadow: 0 4px 12px rgba(189, 161, 109, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* ── Blog Grid & Cards ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-bounce);
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg), 0 8px 20px rgba(189, 161, 109, 0.08);
+      border-color: var(--primary);
+    }
+    .blog-card-img-pane {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    .blog-card-img-pane img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .blog-card:hover .blog-card-img-pane img {
+      transform: scale(1.05);
+    }
+    .blog-category-badge {
+      position: absolute;
+      top: 0.9rem;
+      left: 0.9rem;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.25rem 0.7rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      z-index: 2;
+    }
+    .blog-card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .blog-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+    .blog-card-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .blog-card-meta i {
+      color: var(--primary);
+    }
+    .blog-card-content h3 {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+      transition: var(--transition);
+    }
+    .blog-card:hover .blog-card-content h3 {
+      color: var(--primary);
+    }
+    .blog-card-content p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .blog-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border);
+      padding-top: 0.9rem;
+      margin-top: auto;
+    }
+    .blog-card-author {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .blog-card-author-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: var(--radius-full);
+      background: var(--bg-secondary);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+    .blog-card-author-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    .blog-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: var(--transition);
+    }
+    .blog-card:hover .blog-link-btn {
+      color: var(--primary);
+    }
+    .blog-card:hover .blog-link-btn i {
+      transform: translateX(4px);
+    }
+    .blog-link-btn i {
+      transition: transform 0.3s ease;
+    }
+
+    /* ── Sidebar Widget Styles ── */
+    .sidebar-widget {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-bounce);
+    }
+    .sidebar-widget:hover {
+      box-shadow: var(--shadow-md);
+    }
+    .sidebar-widget h4 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      color: var(--text-primary);
+      border-left: 3px solid var(--primary);
+      padding-left: 0.6rem;
+      line-height: 1.2;
+    }
+    /* Search Box Widget */
+    .sidebar-search-box {
+      display: flex;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .sidebar-search-box:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 10px rgba(189, 161, 109, 0.12);
+      background: var(--bg-card);
+    }
+    .sidebar-search-box input {
+      flex: 1;
+      border: none;
+      background: none;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.88rem;
+      color: var(--text-primary);
+      outline: none;
+      width: 100%;
+    }
+    .sidebar-search-box input::placeholder {
+      color: var(--text-light);
+    }
+    .sidebar-search-btn {
+      background: none;
+      border: none;
+      padding: 0.65rem 0.85rem;
+      color: var(--text-secondary);
+      transition: var(--transition);
+    }
+    .sidebar-search-box:focus-within .sidebar-search-btn {
+      color: var(--primary);
+    }
+    /* Recent Posts Widget */
+    .recent-posts-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .recent-post-item {
+      display: flex;
+      gap: 0.85rem;
+      align-items: center;
+      transition: var(--transition);
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .recent-post-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .recent-post-thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+    .recent-post-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    .recent-post-item:hover .recent-post-thumb img {
+      transform: scale(1.06);
+    }
+    .recent-post-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .recent-post-title-link {
+      font-size: 0.85rem;
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--text-primary);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .recent-post-item:hover .recent-post-title-link {
+      color: var(--primary);
+    }
+    .recent-post-meta-text {
+      font-size: 0.75rem;
+      color: var(--text-light);
+    }
+    /* Tags Cloud Widget */
+    .tags-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .tag-cloud-pill {
+      padding: 0.35rem 0.85rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      transition: var(--transition-bounce);
+      cursor: pointer;
+    }
+    .tag-cloud-pill:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      transform: scale(1.04) translateY(-1px);
+      box-shadow: 0 4px 8px rgba(189, 161, 109, 0.2);
+    }
+    /* CTA Proposal Card Widget */
+    .sidebar-cta-card {
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+      border: 1px solid var(--primary);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .sidebar-cta-card::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(189, 161, 109, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sidebar-cta-icon {
+      font-size: 2.2rem;
+      color: var(--primary-light);
+      margin-bottom: 1rem;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .sidebar-cta-card h4 {
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      border-left: none;
+      padding-left: 0;
+    }
+    .sidebar-cta-card p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    .sidebar-cta-btn {
+      width: 100%;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 0.7rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: var(--transition-bounce);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .sidebar-cta-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(189, 161, 109, 0.35);
+    }
+
+    /* ── Grid Layout & Responsiveness ── */
+    .main-blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    @media (min-width: 1024px) {
+      .main-blog-grid {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+    @media (max-width: 1023px) {
       .main-blog-grid > aside {
-        order: -1;
+        order: 1; /* Place sidebar at the bottom on mobile */
       }
     }
-    @media(max-width:360px) {
-      .section[aria-label="Newsletter"] form input,
-      .section[aria-label="Newsletter"] form button {
-        width: 100% !important;
-        max-width: 100% !important;
-      }
+
+    /* ── FAQ Overrides ── */
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md) !important;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
     }
-    @media(min-width: 1024px) {
-      #glass-balustrade-card {
-        display: none !important;
-      }
+    .faq-item:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
     }
-    #extra-1440-card {
-      display: none !important;
+    .faq-question {
+      padding: 1.15rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      cursor: pointer;
+      user-select: none;
+      transition: var(--transition);
     }
-    @media(min-width: 1440px) {
-      #extra-1440-card {
-        display: flex !important;
-      }
+    .faq-question:hover {
+      color: var(--primary);
+    }
+    .faq-question i {
+      color: var(--primary);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 0.85rem;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+      padding: 0 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .faq-item.open {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-md);
+    }
+    .faq-item.open .faq-question {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .faq-item.open .faq-question i {
+      transform: rotate(180deg);
+    }
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+      padding: 0 1.5rem 1.25rem;
+      border-top: 1px solid var(--border);
+      margin-top: 0;
+      padding-top: 0.85rem;
+    }
+
+    /* Dark Mode specific overrides */
+    [data-theme="dark"] .blog-page-header {
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+    }
+    [data-theme="dark"] .blog-header-search {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+    [data-theme="dark"] .blog-header-search:focus-within {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    [data-theme="dark"] .featured-tag {
+      background: rgba(18, 18, 18, 0.9);
     }
   </style>
 </head>
@@ -116,7 +682,7 @@
       <p>Professional gate design guides, window safety grill installation tips, steel alloy choices, and architectural inspiration straight from our studio.</p>
     </div>
     <div class="page-header-image">
-      <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&q=80" alt="Royal Gates Blog" />
+      <img src="https://www.londonxlondon.com/wp-content/uploads/2023/06/Buckingham-Palace-shutterstock_2201693077.jpg" alt="Royal Gates Blog" />
     </div>
   </div>
 </div>
@@ -124,16 +690,41 @@
 <!-- ══ SECTION 2: BLOG GRID + SIDEBAR ══ -->
 <section class="section bg-secondary-section" aria-label="Blog posts">
   <div class="container">
-    <div class="text-center animate-on-scroll" style="margin-bottom:2rem;">
+    <div class="text-center animate-on-scroll" style="margin-bottom:2.5rem;">
       <span class="section-label">All Articles</span>
       <h2 class="section-title">Latest from Our Studio</h2>
     </div>
+    
     <div class="blog-filter">
-      <button class="blog-filter-btn active" data-filter="all">All</button>
-      <button class="blog-filter-btn" data-filter="guides">Fabrication Guides</button>
-      <button class="blog-filter-btn" data-filter="materials">Material Selection</button>
-      <button class="blog-filter-btn" data-filter="antirust">Anti-Rust Tips</button>
-      <button class="blog-filter-btn" data-filter="cases">Case Studies</button>
+      <button class="blog-filter-btn active" data-blog-filter="all">All</button>
+      <button class="blog-filter-btn" data-blog-filter="guides">Fabrication Guides</button>
+      <button class="blog-filter-btn" data-blog-filter="materials">Material Selection</button>
+      <button class="blog-filter-btn" data-blog-filter="antirust">Anti-Rust Tips</button>
+      <button class="blog-filter-btn" data-blog-filter="cases">Case Studies</button>
+    </div>
+
+    <!-- Featured Post (Appears only on All or Case Studies) -->
+    <div class="featured-post-container animate-on-scroll" data-category="cases">
+      <div class="featured-post-image-pane">
+        <span class="featured-tag">Featured Case Study</span>
+        <img src="https://5.imimg.com/data5/ANDROID/Default/2023/2/TE/GV/IR/61364252/product-jpeg.jpg" alt="Grand motorized steel driveway gate in ECR Chennai" />
+      </div>
+      <div class="featured-post-content">
+        <div class="featured-post-meta">
+          <span><i class="far fa-calendar-alt"></i> Dec 12, 2024</span>
+          <span><i class="far fa-clock"></i> 8 min read</span>
+        </div>
+        <h2>Motorized Telescopic Sliding Gate for an Estate in ECR Chennai</h2>
+        <p>A comprehensive walkthrough of our recent installation. Learn how our design engineers resolved a limited side-clearance span using a two-leaf motorized telescopic drive mechanism fabricated in heavy-grade structural MS profiles.</p>
+        <div class="featured-post-author">
+          <div class="author-avatar">RG</div>
+          <div class="author-info">
+            <h5>Royal Gates Design Team</h5>
+            <span>Senior Fabricators</span>
+          </div>
+        </div>
+        <a href="#" class="featured-read-btn">Read Case Study <i class="fas fa-arrow-right"></i></a>
+      </div>
     </div>
 
     <div class="main-blog-grid">
@@ -142,55 +733,100 @@
         <div class="blog-grid">
           <!-- Post 1 -->
           <div class="blog-card animate-on-scroll delay-1" data-category="materials">
-            <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80" alt="Choosing Driveway Gate Alloys" loading="lazy" /></div>
-            <div class="blog-card-body">
-              <div class="blog-meta"><span><i class="fas fa-calendar"></i> Dec 5, 2024</span><span><i class="fas fa-clock"></i> 5 min</span></div>
+            <div class="blog-card-img-pane">
+              <span class="blog-category-badge">Materials</span>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl6WmWolVsW9sHL6O418iIXLvrSzA5M9j7A6Ko53u24hhKnVVsj1K5wts&s=10" alt="Choosing Driveway Gate Alloys" loading="lazy" />
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><i class="far fa-calendar-alt"></i> Dec 5, 2024</span>
+                <span><i class="far fa-clock"></i> 5 min</span>
+              </div>
               <h3>How to Choose the Right Metal Alloy for Driveway Gates</h3>
-              <p>Learn the core differences between Mild Steel (MS), Stainless Steel (SS), and Aluminum in terms of strength, corrosion resistance, and cost.</p>
-              <a href="#" class="blog-read-more">Read More</a>
+              <p>Learn the core differences between Mild Steel (MS), Stainless Steel (SS), and Aluminum in terms of strength, corrosion resistance, and installation cost.</p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-author-avatar">M</div>
+                  <span class="blog-card-author-name">Materials Desk</span>
+                </div>
+                <a href="#" class="blog-link-btn">Read Article <i class="fas fa-arrow-right"></i></a>
+              </div>
             </div>
           </div>
+          
           <!-- Post 2 -->
           <div class="blog-card animate-on-scroll delay-2" data-category="guides">
-            <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&q=80" alt="Balcony Safety Grill Designs" loading="lazy" /></div>
-            <div class="blog-card-body">
-              <div class="blog-meta"><span><i class="fas fa-calendar"></i> Nov 28, 2024</span><span><i class="fas fa-clock"></i> 6 min</span></div>
+            <div class="blog-card-img-pane">
+              <span class="blog-category-badge">Guides</span>
+              <img src="https://i.pinimg.com/474x/e1/bf/88/e1bf88b3b670c483d17f531168949321.jpg" alt="Balcony Safety Grill Designs" loading="lazy" />
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><i class="far fa-calendar-alt"></i> Nov 28, 2024</span>
+                <span><i class="far fa-clock"></i> 6 min</span>
+              </div>
               <h3>Balcony Safety Grill Designs: Blending Security &amp; Aesthetics</h3>
-              <p>From horizontal louvers to modern CNC-cut screens, explore safety window and balcony grill patterns that protect without feeling like a prison.</p>
-              <a href="#" class="blog-read-more">Read More</a>
+              <p>From horizontal steel louvers to custom modern CNC-cut privacy screens, explore safety window and balcony designs that secure without blocking daylight.</p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-author-avatar">D</div>
+                  <span class="blog-card-author-name">Design Studio</span>
+                </div>
+                <a href="#" class="blog-link-btn">Read Article <i class="fas fa-arrow-right"></i></a>
+              </div>
             </div>
           </div>
+          
           <!-- Post 3 -->
           <div class="blog-card animate-on-scroll delay-1" data-category="antirust">
-            <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Understanding Anti-Rust Coatings" loading="lazy" /></div>
-            <div class="blog-card-body">
-              <div class="blog-meta"><span><i class="fas fa-calendar"></i> Nov 20, 2024</span><span><i class="fas fa-clock"></i> 4 min</span></div>
+            <div class="blog-card-img-pane">
+              <span class="blog-category-badge">Anti-Rust</span>
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEyY4ahdYE0ARW4fkq8OZr2BhMkynOS6W2Q85a-JhmH6Pm0HIvP1PeMmA&s=10" alt="Understanding Anti-Rust Coatings" loading="lazy" />
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><i class="far fa-calendar-alt"></i> Nov 20, 2024</span>
+                <span><i class="far fa-clock"></i> 4 min</span>
+              </div>
               <h3>Understanding Anti-Rust Coatings: Red Oxide vs. Powder Coating</h3>
-              <p>A comparative guide on zinc-chromate primers, baked-on powder coats, and polyurethane paints to prevent steel gates from rusting.</p>
-              <a href="#" class="blog-read-more">Read More</a>
+              <p>A comparative guide on zinc-chromate metal primers, baked-on powder coats, and polyurethane paints to prevent steel structures from rusting in coastal climates.</p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-author-avatar">E</div>
+                  <span class="blog-card-author-name">Eng. Division</span>
+                </div>
+                <a href="#" class="blog-link-btn">Read Article <i class="fas fa-arrow-right"></i></a>
+              </div>
             </div>
           </div>
+          
           <!-- Post 4 -->
           <div id="glass-balustrade-card" class="blog-card animate-on-scroll delay-2" data-category="guides">
-            <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Safety Standards for Balcony Grills" loading="lazy" /></div>
-            <div class="blog-card-body">
-              <div class="blog-meta"><span><i class="fas fa-calendar"></i> Nov 12, 2024</span><span><i class="fas fa-clock"></i> 3 min</span></div>
+            <div class="blog-card-img-pane">
+              <span class="blog-category-badge">Guides</span>
+              <img src="https://cms.interiorcompany.com/wp-content/uploads/2022/07/balcony-grill-design-in-overhang-style.jpg" alt="Safety Standards for Balcony Grills" loading="lazy" />
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span><i class="far fa-calendar-alt"></i> Nov 12, 2024</span>
+                <span><i class="far fa-clock"></i> 3 min</span>
+              </div>
               <h3>Safety Standards for Balcony Grills in Apartment High-Rises</h3>
-              <p>A detailed breakdown of kid-safe grill vertical spacing limits, emergency escape hatch requirements, and anchor bolt pull-out stress.</p>
-              <a href="#" class="blog-read-more">Read More</a>
+              <p>A detailed breakdown of kid-safe vertical spacing limits, emergency escape fire hatch requirements, and anchor bolt pull-out stress guidelines.</p>
+              <div class="blog-card-footer">
+                <div class="blog-card-author">
+                  <div class="blog-card-author-avatar">D</div>
+                  <span class="blog-card-author-name">Design Studio</span>
+                </div>
+                <a href="#" class="blog-link-btn">Read Article <i class="fas fa-arrow-right"></i></a>
+              </div>
             </div>
           </div>
+          
           <!-- Post 5 -->
-          <div id="extra-1440-card" class="blog-card animate-on-scroll delay-1" data-category="cases">
-            <div class="blog-card-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Smart Gate Automation Arm Systems" loading="lazy" /></div>
-            <div class="blog-card-body">
-              <div class="blog-meta"><span><i class="fas fa-calendar"></i> Nov 05, 2024</span><span><i class="fas fa-clock"></i> 7 min</span></div>
-              <h3>Smart Gate Automation: Choosing the Right Motorized Arms</h3>
-              <p>A walkthrough of swing vs. sliding automatic motor systems, battery backups, and infrared safety sensors for residential estates.</p>
-              <a href="#" class="blog-read-more">Read More</a>
-            </div>
-          </div>
+          
         </div>
+        
         <div style="text-align:center;margin-top:2.5rem;">
           <a href="#" class="btn btn-secondary btn-lg">Load More Articles <i class="fas fa-chevron-down"></i></a>
         </div>
@@ -198,30 +834,72 @@
 
       <!-- Sidebar -->
       <aside>
-        <div class="sidebar-card animate-on-scroll">
-          <h4>Search</h4>
-          <div class="search-box-wrapper">
-            <input type="search" class="form-control search-input" placeholder="Search articles..." aria-label="Search articles" />
-            <button class="search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+        <!-- Search widget -->
+        <div class="sidebar-widget animate-on-scroll">
+          <h4>Search Articles</h4>
+          <div class="sidebar-search-box">
+            <input type="search" placeholder="Type to search..." aria-label="Search articles" />
+            <button class="sidebar-search-btn" aria-label="Search"><i class="fas fa-search"></i></button>
           </div>
         </div>
 
-        <div class="sidebar-card animate-on-scroll delay-1">
-          <h4>Recent Posts</h4>
-          <div class="recent-post"><div class="recent-post-img"><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=120&q=60" alt="Recent post" loading="lazy" /></div><div><div class="recent-post-title">Choosing Driveway Gate Alloys</div><div class="recent-post-date">Dec 5, 2024</div></div></div>
-          <div class="recent-post"><div class="recent-post-img"><img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=120&q=60" alt="Recent post" loading="lazy" /></div><div><div class="recent-post-title">Balcony Safety Grill Designs</div><div class="recent-post-date">Nov 28, 2024</div></div></div>
-          <div class="recent-post"><div class="recent-post-img"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=120&q=60" alt="Recent post" loading="lazy" /></div><div><div class="recent-post-title">Understanding Anti-Rust Coatings</div><div class="recent-post-date">Nov 20, 2024</div></div></div>
-        </div>
-        <div class="sidebar-card animate-on-scroll delay-2">
-          <h4>Popular Tags</h4>
-          <div class="tags">
-            <span class="tag-pill">Driveway Gates</span><span class="tag-pill">Balcony Railings</span><span class="tag-pill">Window Grills</span><span class="tag-pill">CNC Laser Screens</span><span class="tag-pill">Rust Prevention</span><span class="tag-pill">Smart Automation</span><span class="tag-pill">Stainless Steel</span><span class="tag-pill">Mild Steel</span><span class="tag-pill">Slam Protection</span>
+        <!-- Recent Posts widget -->
+        <div class="sidebar-widget animate-on-scroll delay-1">
+          <h4>Recent Insights</h4>
+          <div class="recent-posts-list">
+            <div class="recent-post-item">
+              <div class="recent-post-thumb">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnc8auqTcniFWbGtTmjEpj3w0squR6uh9ZaoDV14I-afjVcK3ysQ2tVZcK&s=10" alt="Recent post thumbnail" />
+              </div>
+              <div class="recent-post-detail">
+                <a href="#" class="recent-post-title-link">Choosing Driveway Gate Alloys</a>
+                <span class="recent-post-meta-text">Dec 5, 2024</span>
+              </div>
+            </div>
+            
+            <div class="recent-post-item">
+              <div class="recent-post-thumb">
+                <img src="https://www.designfirst.co.in/blogs/wp-content/uploads/2026/03/Vertical-Bar-Balcony-Grill.jpg" alt="Recent post thumbnail" />
+              </div>
+              <div class="recent-post-detail">
+                <a href="#" class="recent-post-title-link">Balcony Safety Grill Designs</a>
+                <span class="recent-post-meta-text">Nov 28, 2024</span>
+              </div>
+            </div>
+            
+            <div class="recent-post-item">
+              <div class="recent-post-thumb">
+                <img src="https://s3-blog.homelane.com/design-ideas-pre/wp-content/uploads/2021/09/shutterstock_1957842670.jpg" alt="Recent post thumbnail" />
+              </div>
+              <div class="recent-post-detail">
+                <a href="#" class="recent-post-title-link">Understanding Anti-Rust Coatings</a>
+                <span class="recent-post-meta-text">Nov 20, 2024</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="sidebar-card animate-on-scroll delay-3" style="background:linear-gradient(135deg,var(--primary),var(--primary-light));border-color:transparent;">
-          <h4 style="color:#fff;margin-bottom:.75rem;">Free Fabrication Proposal</h4>
-          <p style="color:rgba(255,255,255,.85);font-size:.9rem;margin-bottom:1.25rem;">Share your property photos or building layout blueprint. We will suggest a custom gate/grill layout and provide a free quote!</p>
-          <a href="contact.html" class="btn btn-white btn-sm" style="width:100%;justify-content:center;">Get Free Quote</a>
+
+        <!-- Tags Cloud widget -->
+        <div class="sidebar-widget animate-on-scroll delay-2">
+          <h4>Popular Tags</h4>
+          <div class="tags-cloud">
+            <span class="tag-cloud-pill">Driveway Gates</span>
+            <span class="tag-cloud-pill">Balcony Railings</span>
+            <span class="tag-cloud-pill">Window Grills</span>
+            <span class="tag-cloud-pill">Laser Screens</span>
+            <span class="tag-cloud-pill">Rust Protection</span>
+            <span class="tag-cloud-pill">Automation</span>
+            <span class="tag-cloud-pill">Stainless Steel</span>
+            <span class="tag-cloud-pill">Mild Steel</span>
+          </div>
+        </div>
+
+        <!-- Glassmorphic Proposal widget -->
+        <div class="sidebar-cta-card animate-on-scroll delay-3">
+          <div class="sidebar-cta-icon"><i class="fas fa-drafting-compass"></i></div>
+          <h4>Free Fabrication Proposal</h4>
+          <p>Submit your site layout or measurements. Our design team will compile structural layouts and a custom quote for free!</p>
+          <a href="contact.html" class="sidebar-cta-btn">Request Design Proposal</a>
         </div>
       </aside>
     </div>
@@ -294,5 +972,92 @@
 </footer>
 <button class="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 <script src="../assets/js/main.js"></script>
+<script>
+  // ── Client-Side Search & Filter System ──
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInputHero = document.getElementById('hero-search-input');
+    const searchInputSidebar = document.querySelector('.sidebar-search-box input');
+    const filterBtns = document.querySelectorAll('.blog-filter-btn');
+    const cards = document.querySelectorAll('.blog-card');
+    const featuredPost = document.querySelector('.featured-post-container');
+    const tags = document.querySelectorAll('.tag-cloud-pill');
+    
+    let activeCategory = 'all';
+    let activeSearch = '';
+
+    const filterCards = () => {
+      // Manage Featured Post visibility (only show when category is 'all' or 'cases', and no active search query)
+      if (featuredPost) {
+        const matchesCategory = activeCategory === 'all' || activeCategory === 'cases';
+        const matchesSearch = activeSearch === '';
+        
+        if (matchesCategory && matchesSearch) {
+          featuredPost.style.display = 'grid';
+          featuredPost.style.animation = 'fadeIn 0.4s ease';
+        } else {
+          featuredPost.style.display = 'none';
+        }
+      }
+
+      // Manage standard cards visibility
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category') || '';
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const desc = card.querySelector('p').textContent.toLowerCase();
+        
+        const matchesCategory = activeCategory === 'all' || category === activeCategory;
+        const matchesSearch = title.includes(activeSearch) || desc.includes(activeSearch);
+        
+        if (matchesCategory && matchesSearch) {
+          card.style.display = '';
+          card.style.animation = 'fadeIn 0.4s ease';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    };
+
+    const handleSearch = (val) => {
+      activeSearch = val.toLowerCase().trim();
+      
+      // Synchronize input fields
+      if (searchInputHero && searchInputHero.value !== val) {
+        searchInputHero.value = val;
+      }
+      if (searchInputSidebar && searchInputSidebar.value !== val) {
+        searchInputSidebar.value = val;
+      }
+      
+      filterCards();
+    };
+
+    // Attach search input listeners
+    if (searchInputHero) {
+      searchInputHero.addEventListener('input', (e) => handleSearch(e.target.value));
+    }
+    if (searchInputSidebar) {
+      searchInputSidebar.addEventListener('input', (e) => handleSearch(e.target.value));
+    }
+
+    // Attach category filter button listeners
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        activeCategory = btn.getAttribute('data-blog-filter') || 'all';
+        filterCards();
+      });
+    });
+
+    // Attach tag pill click listeners (sets search query)
+    tags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        const tagName = tag.textContent.trim();
+        handleSearch(tagName);
+      });
+    });
+  });
+</script>
 </body>
 </html>
