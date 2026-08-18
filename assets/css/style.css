@@ -41,6 +41,16 @@
   --z-nav: 1000;
   --z-modal: 2000;
   --z-toast: 3000;
+
+  /* Hamburger Menu variables for Theme Toggle support */
+  --mobile-menu-bg: #ffffff;
+  --mobile-menu-bg-368: #ffffff;
+  --mobile-menu-text: var(--text-primary);
+  --mobile-menu-close-color: var(--text-primary);
+  --mobile-menu-close-bg: var(--bg-secondary);
+  --mobile-menu-btn-bg: var(--bg-secondary);
+  --mobile-menu-btn-hover-bg: var(--border);
+  --mobile-menu-btn-border: var(--border);
 }
 
 /* ── Reset & Base ── */
@@ -330,7 +340,7 @@ strong, b {
 .mobile-menu {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, var(--secondary) 0%, #2d1b3d 100%);
+  background: var(--mobile-menu-bg);
   z-index: calc(var(--z-nav) + 10);
   display: flex;
   flex-direction: column;
@@ -338,7 +348,7 @@ strong, b {
   align-items: center;
   gap: 1.25rem;
   transform: translateX(100%);
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.4s ease;
   padding: 2rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -366,7 +376,7 @@ strong, b {
 .mobile-menu .nav-link {
   font-size: 1.8rem;
   font-family: var(--font-display);
-  color: rgba(255,255,255,0.8);
+  color: var(--mobile-menu-text);
   padding: 0.5rem 2rem;
   text-align: center;
   opacity: 0;
@@ -414,13 +424,22 @@ strong, b {
   position: absolute;
   top: 1.5rem; right: 1.5rem;
   width: 44px; height: 44px;
-  background: rgba(255,255,255,0.1);
+  background: var(--mobile-menu-close-bg);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 1.2rem;
+  color: var(--mobile-menu-close-color); font-size: 1.2rem;
   transition: var(--transition-bounce);
 }
 .mobile-close:hover { background: var(--primary); transform: rotate(90deg) scale(1.1); }
+
+.mobile-menu .btn-ghost {
+  color: var(--mobile-menu-text);
+  border-color: var(--mobile-menu-btn-border);
+  background: var(--mobile-menu-btn-bg);
+}
+.mobile-menu .btn-ghost:hover {
+  background: var(--mobile-menu-btn-hover-bg);
+}
 
 /* ── Hero Section ── */
 .hero {
@@ -2294,8 +2313,18 @@ select.form-control { appearance: none; cursor: pointer; }
   }
 }
 
+/* Custom background color override for 768px screens inside hamburger menu */
+@media (max-width: 768px) {
+  .mobile-menu {
+    background: var(--mobile-menu-bg);
+  }
+}
+
 /* Custom responsive override for 368px screens to place hero background image after the text content */
 @media (max-width: 368px) {
+  .mobile-menu {
+    background: var(--mobile-menu-bg-368);
+  }
   .hero {
     display: flex;
     flex-direction: column;
@@ -2334,3 +2363,4 @@ select.form-control { appearance: none; cursor: pointer; }
     display: none;
   }
 }
+

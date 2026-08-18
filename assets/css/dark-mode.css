@@ -20,6 +20,16 @@
   --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.6);
   --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.7);
   --shadow-xl: 0 30px 80px rgba(0, 0, 0, 0.85);
+
+  /* Hamburger Menu variables for Dark Mode */
+  --mobile-menu-bg: var(--bg-primary);
+  --mobile-menu-bg-368: var(--bg-primary);
+  --mobile-menu-text: var(--text-primary);
+  --mobile-menu-close-color: var(--text-primary);
+  --mobile-menu-close-bg: var(--bg-secondary);
+  --mobile-menu-btn-bg: var(--bg-secondary);
+  --mobile-menu-btn-hover-bg: var(--border);
+  --mobile-menu-btn-border: var(--border);
 }
 
 [data-theme="dark"] .header.scrolled {
